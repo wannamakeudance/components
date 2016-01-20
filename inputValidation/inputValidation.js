@@ -1,7 +1,6 @@
-// 设置输入框的宽和高，输入的字数限制
-// 是否可以点掉小叉叉进行清除
-// 写成extend格式
-// 保证健壮性，如果不输入某个属性时，默认是多少
+/*
+	created by jxz 2016.1.20
+*/ 
 function ValFun(type){
 	this.arg=type;
 	this.html='';
