@@ -29,7 +29,7 @@ ValFun.prototype={
 		return re.test(this.value);
 	},
 	email:function(){
-		var re=/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+		var re=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
 		return re.test(this.value);
 	},
 	length:function(){
