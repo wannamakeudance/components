@@ -17,6 +17,7 @@ function ValFun(type){
 	}
 }
 ValFun.prototype={
+	constructor: ValFun,
 	initUI:function(){
 		this.setType();
 		this.setHeight();
