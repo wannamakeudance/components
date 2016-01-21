@@ -8,9 +8,38 @@
 	<script src="inputValidation.js"></script>
 	<!-- <link rel="stylesheet" href="../plugins/css/bootstrap.min.css"> -->
 	<style>
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing:border-box;
+	}
 	input,textarea{
 		outline: none;
 	}
+	.inputbox,.inputbox a{
+		display: inline-block;
+	}
+	.inputbox{
+
+		border: 1px solid #000;
+		padding: 1px;
+	}
+	.inputbox a{
+		width: 20px;
+		text-decoration: none;
+		text-align: center;
+		color: #999;
+		vertical-align: middle;
+	}
+	.inputbox a:hover{
+		color: #000;
+		font-weight: bold;
+	}
+	input{
+		border: none;
+		vertical-align: middle;
+	}
+
 	</style>
 	<script>
 		$(function(){
@@ -23,7 +52,7 @@
 			{
 				'id':'#inputTest',
 				'width':'300px',
-				'height':'20px',
+				'height':'21px',
 				'placeholder':'你好呀呀',
 				'type':'text',
 				'parent':'#box'
@@ -41,9 +70,9 @@
 				var flag=ValFunNum.length();
 		        // 校验长度
 				if(!ValFunNum.length()){
-					$(this).css('border','2px solid red');
+					$(this).parent().css('border','1px solid red');
 				}else{
-					$(this).css('border','2px inset');
+					$(this).parent().css('border','1px solid #000');
 				}
 		
 			});
@@ -52,9 +81,9 @@
 				var ValFunNum=new ValFun({'id':'#inputTest','value':$val});
 				// email校验
 				if(!ValFunNum.email()){
-					$('#inputTest').css('border','2px solid red');
+					$('#inputTest').parent().css('border','1px solid red');
 				}else{
-					$('#inputTest').css('border','2px inset');
+					$('#inputTest').parent().css('border','1px solid #000');
 				}
 				// 必填项校验
 				ValFunNum.required();

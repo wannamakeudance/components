@@ -1,0 +1,140 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: '微软雅黑';
+	font-size:14px;
+}
+#tree{
+	width: 100%;
+}
+#tree .tit span{
+	background: #f4f7f9;
+	color: #000;
+}
+#tree .tit .l{
+	text-align: center;
+}
+#tree span{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#tree .l{
+	width: 40%;
+	height: 40px;
+	text-align: left;
+	cursor: default;
+}
+#tree .r,#tree .m{
+	width: 19%;
+	height: 40px;	
+}
+#tree .r,#tree .m,#tree .l{
+	background: #fff;
+	line-height: 40px;
+	float: left;
+	border: 1px solid #dde0e4;
+	border-right: none;
+	border-bottom: none;
+}
+#tree .last{
+	border-bottom: 1px solid #e5e5e5;
+}
+#tree .near{
+	border-right: 1px solid #e5e5e5;
+}
+#tree span.onRow{
+	background: #edf3fe;
+}
+#tree .readCheck,#tree .writeCheck{
+	width: 15px;
+	height: 15px;
+	border-radius: 2px;
+	display: none;
+}
+#tree .readCheck.on,#tree .writeCheck.on{
+	border:1px solid #4080fa;
+	display:inline-block;
+}
+#tree .readCheck.ok,#tree .writeCheck.ok{
+	display:inline-block;
+	background: url(../img/duigou.png) no-repeat center;
+	background-size: 80%;
+	-moz-background-size:80%;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/duigou.png',  sizingMethod='scale');
+}
+
+#tree .readCheck.ok.noPower{
+	background: url(../img/ok.png) no-repeat center;
+	background-size: 80%;
+	-moz-background-size:80%;
+	border:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/ok.png',  sizingMethod='scale');
+}
+
+#tree .son,#tree .grandSon,#tree .fourthGen{
+	display: none;
+}
+#tree .son .l{
+	padding-left: 3%;
+	width: 37%;
+}
+#tree .grandSon .l{
+	padding-left: 6%;
+	width: 34%;
+}
+#tree .fourthGen .l{
+	padding-left: 10%;
+	width: 31%;
+}
+#tree .tri-top{
+	display: inline-block;
+	width: 0;
+	height:0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 6px solid #999;
+	margin: 2px 2px;
+}
+#tree .tri-top.add,#tree .tri-right.add{
+	margin: 2px 2px 5px 14px;
+}
+#tree .tri-right{
+	display: inline-block;
+	width: 0;
+	height:0;
+	border-bottom: 4px solid transparent;
+	border-left: 6px solid #999;
+	border-top: 4px solid transparent;
+	margin: 2px 2px;
+}
+#tree .docPic{
+	display: inline-block;
+	width:19px;
+	height: 15px; 
+	padding-right: 5px; 
+	background: url(../img/p1.png) no-repeat;
+}
+#tree .docPic.docOpen{
+	background: url(../img/p2.png) no-repeat;
+}
+#tree .lastChild{
+	display: inline-block;
+	width:19px;
+	height: 15px; 
+	padding-right: 5px; 
+	background: url(../img/p4.png) no-repeat;
+}
+#tree .noChild{
+	display: inline-block;
+	width:19px;
+	height: 15px; 
+	padding-right: 5px; 
+	background: url(../img/p3.png) no-repeat;
+}
+
+.clearfix:after{ display: inline-block; content: ''; clear: both; }
+.clearfix{
+	zoom: 1;
+}
