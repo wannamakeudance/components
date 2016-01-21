@@ -79,6 +79,7 @@ ValFun.prototype={
 		var _this=this;
 		$(this.id+'+ .clearInput').click(function(){
 			$(_this.id).val('');
+			$(_this.id).parent().css('border','1px solid #000');
 		});
 	}
 };
