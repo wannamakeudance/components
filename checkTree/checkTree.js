@@ -1,5 +1,5 @@
 /*
-	created by jxz 2016.1.21
+	created by jxz 2016.1.25
 */ 
 // 最小宽度的设置要考虑到层级数目，不然可能一部分会看不到
 // 想下怎么存储数据，这个行为肯定是加在点击事件上的
@@ -25,6 +25,7 @@ CheckTree.prototype={
 		this.setWidth();
 		this.showChildren();
 		this.checkbox();
+		this.chooseAll();
 	},
 	setType:function(){
 		var _this=this;
@@ -80,7 +81,7 @@ CheckTree.prototype={
 						if(data.status ==1&&($this.parents('li').hasClass('hasChildren'))){
 	      					var tmp='<ul class="rootChildren">'+
 	      								'{{each msgDetail as value i}}'+
-	      									'<li  data-rootId="{{value.id}}"><i class="checkbox"></i><span class="root"><span>{{value.name}}</span></span></li>'+
+	      									'<li  data-rootId="{{value.id}}"><span class="root"><i class="checkbox"></i><span>{{value.name}}</span></span></li>'+
 	      								'{{/each}}'+
 	      							'</ul>';
 							$('#'+scriptArr[1]).append(tmp);
@@ -112,6 +113,14 @@ CheckTree.prototype={
 	},
 	chooseAll:function(){
 		// 要区分出展开和未展开的状态
+		$(document).on('click','#checkable .checkbox',function(){
+			if($(this).hasClass('ok')){
+				$(this).parents('.root').parent().children('ul').find('.checkbox').addClass('ok');
+			}else{
+				$(this).parents('li').children('ul').find('.checkbox').removeClass('ok');
+			}
+			return false;
+		});
 	},
 	affectParent:function(){
 
