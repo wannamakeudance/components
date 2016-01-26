@@ -19,7 +19,8 @@
 				'height':'100px',
 				'url':'../lib/testData/treeShow.json',
 				'uid':'0022',
-				'initId':'2231'//第一次进入页面时请求的
+				'initId':'2231',//第一次进入页面时请求
+				'scriptId':['root1','root2']//script标签的id，用来渲染模板
 			});
 			CheckTreeUI.initUI();
 			
@@ -33,6 +34,5 @@
 	</div>
 	<script type="text/html" id="root1"></script>
 	<script type="text/html" id="root2"></script>
-	<script type="text/html" id="root3"></script>
 </body>
 </html>

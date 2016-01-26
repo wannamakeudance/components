@@ -27,6 +27,7 @@ CheckTree.prototype={
 	},
 	setType:function(){
 		var _this=this;
+		var scriptArr=_this.scriptId;
 		// tab初始化
 		$.ajax({
 			url:_this.url,
@@ -44,8 +45,8 @@ CheckTree.prototype={
                         			'</span>'+
                         		'</li>'+
 							'{{/each}}';
-					$('#root1').append(tmp);
-					var html=template('root1',data);
+					$('#'+scriptArr[0]).append(tmp);
+					var html=template(scriptArr[0],data);
 					$('#checkable ul').append(html);
 				}else{
 					alert(data.msgInfo);
@@ -61,6 +62,7 @@ CheckTree.prototype={
 	},
 	showChildren:function(){
 		var _this=this;
+		var scriptArr=_this.scriptId;
 		$(document).on('click','.root',function(){
 			var $this=$(this);
 			var $rootid=$this.parents('li').data('rootid');
@@ -80,8 +82,8 @@ CheckTree.prototype={
 	      									'<li  data-rootId="{{value.id}}"><i class="checkbox"></i><span class="root"><span>{{value.name}}</span></span></li>'+
 	      								'{{/each}}'+
 	      							'</ul>';
-							$('#root2').append(tmp);
-							var html=template('root2',data);
+							$('#'+scriptArr[1]).append(tmp);
+							var html=template(scriptArr[1],data);
 							$this.parent().append(html);		
 							$this.parent().children('.rootChildren').slideToggle(200,'linear');
 							
