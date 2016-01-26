@@ -1,0 +1,32 @@
+// collection:0子级没有任何一个是权限集选中的，
+// 1子级部分是由权限集选中的，2所有被选中的子级都是权限集选中的
+{
+	"msgInfo":"错误信息",
+	"status":1,
+	"msgDetail":[
+		{
+			"name":"机构重设",
+			"id":"0015",
+			"allChoose":true,
+			"collection":1,
+			"checked":0,
+			"hasChildren":true
+		},
+		{
+			"name":"岗位管理",
+			"id":"0019",
+			"allChoose":true,
+			"collection":1,
+			"checked":0,
+			"hasChildren":false
+		},
+		{
+			"name":"岗位调剂",
+			"id":"0019",
+			"allChoose":true,
+			"collection":1,
+			"checked":0,
+			"hasChildren":false
+		}
+	]	
+}
