@@ -43,6 +43,10 @@ ul.rootChildren{
 	border: 1px solid #999;
 	display: inline-block;
 }
+.checkbox.ok{
+	background: url(../lib/imgs/ok.png) no-repeat center;
+	background-size: 80%;
+}
 .root span,.root i{
 	vertical-align: middle;
 }

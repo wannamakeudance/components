@@ -14,14 +14,13 @@
 		$(function(){
 			// 调用tree组件
 			var CheckTreeUI=new CheckTree(
-			{
-				'width':'500px',
-				'height':'100px',
-				'url':'../lib/testData/treeShow.json',
-				'uid':'0022',
-				'initId':'2231',//第一次进入页面时请求
-				'scriptId':['root1','root2']//script标签的id，用来渲染模板
-			});
+				{
+					'width':'500px',
+					'url':'../lib/testData/treeShow.json',
+					'uid':'0022',
+					'initId':'2231',//第一次进入页面时请求
+					'scriptId':['root1','root2']//script标签的id，用来渲染模板
+				});
 			CheckTreeUI.initUI();
 			
 		});

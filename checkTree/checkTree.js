@@ -24,6 +24,7 @@ CheckTree.prototype={
 		this.setType();
 		this.setWidth();
 		this.showChildren();
+		this.checkbox();
 	},
 	setType:function(){
 		var _this=this;
@@ -88,6 +89,7 @@ CheckTree.prototype={
 							$this.parent().children('.rootChildren').slideToggle(200,'linear');
 							
 						}else{
+							alert('该层没有子级');
 							return false;
 						}
 						// 作为请求过的标识
@@ -101,5 +103,17 @@ CheckTree.prototype={
 				$this.parent().children('.rootChildren').slideToggle(200,'linear');
 			}		
 		});
+	},
+	checkbox:function(){
+		$(document).on('click','#checkable .checkbox',function(){
+			$(this).toggleClass('ok');
+			return false;
+		});
+	},
+	chooseAll:function(){
+		// 要区分出展开和未展开的状态
+	},
+	affectParent:function(){
+
 	}
 };
