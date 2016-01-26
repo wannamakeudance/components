@@ -1,6 +1,7 @@
 /*
 	created by jxz 2016.1.21
 */ 
+// 最小宽度的设置要考虑到层级数目，不然可能一部分会看不到
 // 想下怎么存储数据，这个行为肯定是加在点击事件上的
 // 可以设置最大高度和最小高度，如果超出设置的时候，显示出滚轮
 // 可以设置显示的图片及交互时的效果
@@ -73,11 +74,11 @@ CheckTree.prototype={
 						var data=eval('('+data+')');
 						//父节点有孩子且status是1时点击才进行请求； 
 						if(data.status ==1&&($this.parents('li').hasClass('hasChildren'))){
-							var tmp='{{each msgDetail as value i}}'+
-									'<ul class="rootChildren">'+
-	                            		'<li><i class="checkbox"></i><span class="root"><span>{{value.name}}</span></span></li>'+
-	                            	'</ul>'+
-	            					'{{/each}}';
+	      					var tmp='<ul class="rootChildren">'+
+	      								'{{each msgDetail as value i}}'+
+	      									'<li><i class="checkbox"></i><span class="root"><span>{{value.name}}</span></span></li>'+
+	      								'{{/each}}'+
+	      							'</ul>';
 							$('#root2').append(tmp);
 							var html=template('root2',data);
 							$this.parent().append(html);		
@@ -91,6 +92,7 @@ CheckTree.prototype={
 						}else{
 							return false;
 						}
+						// 作为请求过的标识
 						$this.data('hasLoad',1);
 					},
 					error:function(){
