@@ -13,13 +13,17 @@
 	*{
 		margin:0;
 		padding: 0;
+		font-size: 14px;
+		font-family: '微软雅黑';
 	}
-	.panelTree{
-		width: 200px;
-		border: 1px solid red;
-	}
-	.panelTree-body{
-		border:1px solid #000;
+	#checkable{
+		text-align: center;
+		border:1px solid #999;
+		min-width: 120px;
+		min-height: 150px;
+		max-height: 300px;
+		overflow: scroll;
+		/*设置树状组件的最小宽度*/
 	}
 	ul{
 	    display: block;
@@ -62,8 +66,8 @@
 		$(function(){
 			var CheckTreeUI=new CheckTree(
 			{
-				'width':'300px',
-				'height':'21px',
+				'width':'200px',
+				'height':'100px',
 			});
 			CheckTreeUI.initUI();
 			

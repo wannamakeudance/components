@@ -1,7 +1,9 @@
 /*
 	created by jxz 2016.1.21
 */ 
-
+// 想下怎么存储数据，这个行为肯定是加在点击事件上的
+// 可以设置最大高度和最小高度，如果超出设置的时候，显示出滚轮
+// 可以设置显示的图片及交互时的效果
 // 传入的参数包括：层级数，是否显示复选框，每一层级的数据（name）;还要判断是否已经更改过数据，如果没有更改直接不传数据
 function CheckTree(type){
 	this.arg=type;
@@ -21,8 +23,7 @@ CheckTree.prototype={
 	constructor:CheckTree,
 	initUI:function(){
 		this.setType();
-		// this.setWidth();
-		// this.setHeight();
+		this.setWidth();
 		this.showChildren();
 	},
 	setType:function(){
@@ -56,10 +57,7 @@ CheckTree.prototype={
 		});
 	},
 	setWidth:function(){
-		// $(this.id).css('width',this.width);
-	},
-	setHeight:function(){
-		// $(this.id).css('height',this.height);
+		$('#checkable').css('width',this.width);
 	},
 	showChildren:function(){
 		$(document).on('click','.root',function(){
