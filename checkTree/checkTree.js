@@ -1,6 +1,8 @@
 /*
 	created by jxz 2016.1.21
 */ 
+
+// 传入的参数包括：层级数，是否显示复选框，每一层级的数据（name）
 function CheckTree(type){
 	this.arg=type;
 	this.html='';

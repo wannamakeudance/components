@@ -3,9 +3,95 @@
 <head>
 	<meta charset="UTF-8">
 	<title>testTree</title>
-	
+	<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
+	<script src="../lib/plugins/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../lib/plugins/css/bootstrap.css">
+	<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	.panelTree{
+		width: 200px;
+		border: 1px solid red;
+	}
+	.panelTree-body{
+		border:1px solid #000;
+	}
+	ul{
+	    display: block;
+	    list-style-type: disc;
+	    -webkit-margin-before: 1em;
+	    -webkit-margin-after: 1em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    -webkit-padding-start: 20px;
+	    margin-top: 0px;
+	}
+	li{
+		list-style: none;
+		display: list-item;
+    	text-align: -webkit-match-parent;
+	}
+	.checkbox,#box1,#pox1{
+		cursor: pointer;
+	}
+	#box2,#pox2{
+		display: none;
+	}
+	.checkbox{
+		padding: 0;
+		margin:0;
+		width: 15px;
+		height: 15px;
+		border: 1px solid red;
+		display: inline-block;
+	}
+	.root span,.root i{
+		vertical-align: middle;
+	}
+	.root span{
+		margin-left: 5px;
+	}
+	</style>
+	<script>
+		$(function(){
+			$('#box2').add('#pox2').slideUp();
+			$('#box1').click(function(){
+				$('#box2').slideToggle(200,'linear');
+			});
+			$('#pox1').click(function(){
+				$('#pox2').slideToggle(200,'linear');
+			});
+		});
+	</script>
 </head>
 <body>
-	
+	  <div class="panelTree">
+        <div class="panelTree-body">
+            <div id="checkable">
+                <ul>
+                    <li data-jstree='{"opened":true}'>
+                        <span class="root" id="box1"><i class="checkbox"></i><span>Root node 1</span></span>
+                        <ul id="box2">
+                            <li data-jstree='{"opened":true, "selected":true }'> <span class="root"><i class="checkbox"></i><span>Initially Selected</span></span></li>
+                            <li> <span class="root"><i class="checkbox"></i><span>Folder 1</span></span></li>
+                            <li> <span class="root"><i class="checkbox"></i><span>Folder 2</span></span></li>
+                            <li data-jstree='{"opened":true}'>
+                                 <span class="root"  id="pox1"><i class="checkbox"></i><span>Folder 3(has)</span></span>
+                                <ul id="pox2">
+                                    <li data-jstree='{"disabled":true}' ><span class="root"><i class="checkbox"></i><span>children1</span></span></li>
+                                    <li><span class="root"><i class="checkbox"></i><span>children2</span></span></li>
+                                </ul>
+                            </li>
+                            <li data-jstree='{ "icon" : "fa fa-warning fa-lg text-danger" }'><span class="root"><i class="checkbox"></i><span>Folder 4</span></span></li>
+                            <li data-jstree='{ "icon" : "fa fa-link fa-lg text-primary" }'><span class="root"><i class="checkbox"></i><span>Folder 5</span></span></li>
+                        </ul>
+                    </li>
+                    <li><span class="root"><i class="checkbox"></i><span>root node 2</span></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

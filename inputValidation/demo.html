@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>testInputVal</title>
-	<script src="../plugins/js/jquery-1.9.1.min.js"></script>
+	<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
 	<!-- <script src="../plugins/js/bootstrap.min.js"></script> -->
 	<script src="inputValidation.js"></script>
 	<!-- <link rel="stylesheet" href="../plugins/css/bootstrap.min.css"> -->
@@ -38,7 +38,7 @@
 		        // 校验长度
 		        var flag=ValFunNum.length()&&(ValFunNum.number());
 				if(!flag){
-					$(this).parent().css('border','2px solid red');
+					$(this).parent().css('border','1px solid red');
 				}else{
 					$(this).parent().css('border','1px solid #000');
 				}
@@ -62,6 +62,6 @@
 </head>
 <body>
 	<button>校验邮箱</button>
-	<div id="box" style="width: 800px; height: 300px; border: 10px solid pink;"></div>
+	<div id="box" style="width: 800px; height: 300px; border: 10px solid pink; padding-top: 10px"></div>
 </body>
 </html>
