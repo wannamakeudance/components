@@ -57,7 +57,7 @@ CheckTree.prototype={
 				}	
 			},
 			error:function(){
-				alert('请求服务出问题了1');
+				alert('error');
 			}
 		});
 	},
@@ -71,7 +71,7 @@ CheckTree.prototype={
 			var $this=$(this);
 			var $rootid=$this.parents('li').data('rootid');
 			var $choose=$this.data('choose');
-			alert('传入'+$choose);
+			alert('传入的choose值'+$choose);
 			if($this.data('hasLoad')!= 1){
 				$.ajax({
 					url:_this.url,
@@ -117,7 +117,6 @@ CheckTree.prototype={
 			var $root=$(this).parent('.root');
 			// 改变当前对象的data-choose值
 			$(this).hasClass('ok')?$root.data('choose',true):$root.data('choose',false);
-			// alert($root.data('choose'));
 			return false;
 		});
 	},
@@ -138,8 +137,24 @@ CheckTree.prototype={
 	},
 	affectParent:function(){
 		$(document).on('click','#checkable .checkbox',function(){
+			var $sibling=$(this).parents('ul').eq(0).children('li');
+			var $length=$sibling.length;
 			var n=0;
-			// for(var i=0; i<)
+			for(var i=0; i<$length ;i++){
+				if($sibling.find('.checkbox').eq(i).hasClass('ok')){
+					n++;
+				}
+			}
+			if(n ==$length){
+				$(this).parents('ul').prev().find('.checkbox').addClass('ok');
+				// 同步操作数据
+				$(this).parents('ul').prev().find('.root').data('choose',true);
+			}else{
+				$(this).parents('ul').prev().find('.checkbox').removeClass('ok');
+				// 同步操作数据
+				$(this).parents('ul').prev().find('.root').data('choose',false);
+			}
+			
 		});
 	}
 };
