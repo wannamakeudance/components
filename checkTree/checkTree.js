@@ -117,7 +117,7 @@ CheckTree.prototype={
 			if($(this).hasClass('ok')){
 				$(this).parents('.root').parent().children('ul').find('.checkbox').addClass('ok');
 			}else{
-				$(this).parents('li').children('ul').find('.checkbox').removeClass('ok');
+				$(this).parents('.root').parent().children('ul').find('.checkbox').removeClass('ok');
 			}
 			return false;
 		});
