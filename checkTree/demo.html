@@ -8,67 +8,18 @@
 	<script src="../lib/plugins/js/template.js"></script>
 	<script src="checkTree.js"></script>
 	<!-- <link rel="stylesheet" href="../lib/plugins/css/bootstrap.css"> -->
-
-	<style>
-	*{
-		margin:0;
-		padding: 0;
-		font-size: 14px;
-		font-family: '微软雅黑';
-	}
-	#checkable{
-		text-align: center;
-		border:1px solid #999;
-		min-width: 120px;
-		min-height: 150px;
-		max-height: 300px;
-		overflow: scroll;
-		/*设置树状组件的最小宽度*/
-	}
-	ul{
-	    display: block;
-	    list-style-type: disc;
-	    -webkit-margin-before: 1em;
-	    -webkit-margin-after: 1em;
-	    -webkit-margin-start: 0px;
-	    -webkit-margin-end: 0px;
-	    -webkit-padding-start: 2em;
-	    margin-top: 0.5em;
-	}
-	li{
-		list-style: none;
-		display: list-item;
-    	text-align: -webkit-match-parent;
-	}
-	.checkbox,li,.rootChildren{
-		cursor: pointer;
-	}
-	ul.rootChildren{
-		display: none;
-	}
-	.checkbox{
-		vertical-align: middle;
-		padding: 0;
-		margin:0;
-		width: 15px;
-		height: 15px;
-		border: 1px solid #000;
-		display: inline-block;
-	}
-	.root span,.root i{
-		vertical-align: middle;
-	}
-	.root span{
-		margin-left: 5px;
-	}
-	</style>
+	<link rel="stylesheet" href="checkTree.css">
 	<script>
 		
 		$(function(){
+			// 调用tree组件
 			var CheckTreeUI=new CheckTree(
 			{
 				'width':'500px',
 				'height':'100px',
+				'url':'../lib/testData/treeShow.json',
+				'uid':'0022',
+				'initId':'2231'//第一次进入页面时请求的
 			});
 			CheckTreeUI.initUI();
 			

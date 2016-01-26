@@ -11,13 +11,11 @@ function CheckTree(type){
 	this.html='';
 	// 设置默认值
 	this.width='30px';
-	this.height='60px';
 	this.type='radio';//单选or复选出现复选框
 	this.parent=document.body;
 	// 实际传进的参数值
 	for(var i in this.arg){
 		this[i]=this.arg[i];
-
 	}
 }
 CheckTree.prototype={
@@ -28,19 +26,20 @@ CheckTree.prototype={
 		this.showChildren();
 	},
 	setType:function(){
+		var _this=this;
 		// tab初始化
 		$.ajax({
-			url:'../lib/testData/treeShow.json',
+			url:_this.url,
 			data:{
-				uid:'0092',
-				rootid:'4848'
+				uid:_this.uid,
+				initId:_this.initId
 			},
 			success:function(data){
 				var data=eval('('+data+')');
 				if(data.status ==1){
 					// 首次渲染页面
 					var tmp='{{each msgDetail as value i}}'+
-								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}">'+
+								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
                         			'<span class="root"><i class="checkbox"></i><span>{{value.name}}</span></span>'+
                         			'</span>'+
                         		'</li>'+
@@ -61,14 +60,16 @@ CheckTree.prototype={
 		$('#checkable').css('width',this.width);
 	},
 	showChildren:function(){
+		var _this=this;
 		$(document).on('click','.root',function(){
 			var $this=$(this);
+			var $rootid=$this.parents('li').data('rootid');
 			if($this.data('hasLoad')!= 1){
 				$.ajax({
-					url:'../lib/testData/treeShow.json',
+					url:_this.url,
 					data:{
-						uid:'9922',
-						rootid:'9daa'
+						uid:_this.uid,
+						rootid:$rootid
 					},
 					success:function(data){
 						var data=eval('('+data+')');
@@ -76,18 +77,13 @@ CheckTree.prototype={
 						if(data.status ==1&&($this.parents('li').hasClass('hasChildren'))){
 	      					var tmp='<ul class="rootChildren">'+
 	      								'{{each msgDetail as value i}}'+
-	      									'<li><i class="checkbox"></i><span class="root"><span>{{value.name}}</span></span></li>'+
+	      									'<li  data-rootId="{{value.id}}"><i class="checkbox"></i><span class="root"><span>{{value.name}}</span></span></li>'+
 	      								'{{/each}}'+
 	      							'</ul>';
 							$('#root2').append(tmp);
 							var html=template('root2',data);
 							$this.parent().append(html);		
 							$this.parent().children('.rootChildren').slideToggle(200,'linear');
-
-							// $this.find(sonName).slideToggle(150,'linear');
-							// // 改变小三角方向和图标样式
-							// $this.children('.l').find('.add').removeClass('tri-top').addClass('tri-right');
-							// $this.children('.l').find('.docPic').addClass('docOpen');
 							
 						}else{
 							return false;
@@ -101,8 +97,7 @@ CheckTree.prototype={
 				});
 			}else{
 				$this.parent().children('.rootChildren').slideToggle(200,'linear');
-			}
-		
+			}		
 		});
 	}
 };
