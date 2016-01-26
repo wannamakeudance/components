@@ -26,6 +26,7 @@ CheckTree.prototype={
 		this.showChildren();
 		this.checkbox();
 		this.chooseAll();
+		this.affectParent();
 	},
 	setType:function(){
 		var _this=this;
@@ -43,7 +44,8 @@ CheckTree.prototype={
 					// 首次渲染页面
 					var tmp='{{each msgDetail as value i}}'+
 								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
-                        			'<span class="root"><i class="checkbox"></i><span>{{value.name}}</span></span>'+
+                        			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+                        			'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span>'+
                         			'</span>'+
                         		'</li>'+
 							'{{/each}}';
@@ -68,12 +70,15 @@ CheckTree.prototype={
 		$(document).on('click','.root',function(){
 			var $this=$(this);
 			var $rootid=$this.parents('li').data('rootid');
+			var $choose=$this.data('choose');
+			alert('传入'+$choose);
 			if($this.data('hasLoad')!= 1){
 				$.ajax({
 					url:_this.url,
 					data:{
 						uid:_this.uid,
-						rootid:$rootid
+						rootid:$rootid,
+						choose:$choose
 					},
 					success:function(data){
 						var data=eval('('+data+')');
@@ -81,7 +86,8 @@ CheckTree.prototype={
 						if(data.status ==1&&($this.parents('li').hasClass('hasChildren'))){
 	      					var tmp='<ul class="rootChildren">'+
 	      								'{{each msgDetail as value i}}'+
-	      									'<li  data-rootId="{{value.id}}"><span class="root"><i class="checkbox"></i><span>{{value.name}}</span></span></li>'+
+	      									'<li  data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+	      									'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span></li>'+
 	      								'{{/each}}'+
 	      							'</ul>';
 							$('#'+scriptArr[1]).append(tmp);
@@ -108,6 +114,10 @@ CheckTree.prototype={
 	checkbox:function(){
 		$(document).on('click','#checkable .checkbox',function(){
 			$(this).toggleClass('ok');
+			var $root=$(this).parent('.root');
+			// 改变当前对象的data-choose值
+			$(this).hasClass('ok')?$root.data('choose',true):$root.data('choose',false);
+			// alert($root.data('choose'));
 			return false;
 		});
 	},
@@ -116,13 +126,20 @@ CheckTree.prototype={
 		$(document).on('click','#checkable .checkbox',function(){
 			if($(this).hasClass('ok')){
 				$(this).parents('.root').parent().children('ul').find('.checkbox').addClass('ok');
+				// 改变子节点对应对象的data-choose值
+				$(this).parents('.root').parent().children('ul').find('.root').data('choose',true);
 			}else{
 				$(this).parents('.root').parent().children('ul').find('.checkbox').removeClass('ok');
+				// 改变子节点对应对象的data-choose值
+				$(this).parents('.root').parent().children('ul').find('.root').data('choose',false);
 			}
 			return false;
 		});
 	},
 	affectParent:function(){
-
+		$(document).on('click','#checkable .checkbox',function(){
+			var n=0;
+			// for(var i=0; i<)
+		});
 	}
 };
