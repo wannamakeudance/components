@@ -5,6 +5,7 @@
 	font-family: '微软雅黑';
 }
 #checkable{
+	display: none;
 	text-align: center;
 	border:1px solid #999;
 	min-width: 120px;

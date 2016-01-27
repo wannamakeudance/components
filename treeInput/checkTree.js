@@ -10,6 +10,8 @@ function CheckTree(type){
 	this.html='';
 	// 设置默认值
 	this.width='30px';
+	this.left='0px';
+	this.position='absolute';
 	this.type='radio';//单选or复选出现复选框
 	this.parent=document.body;
 	// 实际传进的参数值
@@ -22,6 +24,7 @@ CheckTree.prototype={
 	initUI:function(){
 		this.setType();
 		this.setWidth();
+		this.setLeft();
 		this.showChildren();
 		this.checkbox();
 		this.chooseAll();
@@ -62,6 +65,9 @@ CheckTree.prototype={
 	},
 	setWidth:function(){
 		$('#checkable').css('width',this.width);
+	},
+	setLeft:function(){
+		$('#checkable').css({'position':this.position,'left':this.left});
 	},
 	showChildren:function(){
 		var _this=this;

@@ -50,11 +50,16 @@
 
 			    });		
 			    $(document).on('click','#tags',function(){
+			    	var $width=$('#tags').width()+'px';
+			    	var $left=$('#tags').offset().left+'px';
+			    	console.log($left);
 			    	if($('#checkable li').length== 0&&($('#tags').val() == '')){
 				    	// 调用tree组件
 						var CheckTreeUI=new CheckTree(
 							{
-								'width':'500px',
+								'width':$width,
+								'left':$left,
+								'position':'absolute',
 								'url':'../lib/testData/treeShow.json',
 								'uid':'0022',
 								'initId':'2231',//第一次进入页面时请求
