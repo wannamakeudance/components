@@ -18,6 +18,7 @@ InputTree.prototype={
 		$('#checkable').slideUp(200,'linear');
 		this.autoComplete();
 		this.checkTree();
+		this.confirmTree();
 	},
 	autoComplete:function(){
 		var availableTags = [
@@ -70,10 +71,16 @@ InputTree.prototype={
 						'scriptId':['root1','root2']//script标签的id，用来渲染模板
 					});
 				CheckTreeUI.initUI();
-				$('#checkable').slideDown(500,'linear');
+				$('#checkable').slideDown(300,'linear');
 	    	}else if($('#checkable li').length != 0&&($('#tags').val() == '')){
-	    		$('#checkable').slideDown(500,'linear');
+	    		$('#checkable').slideDown(300,'linear');
 	    	}
 	    });	
+	},
+	confirmTree:function(){
+		$(document).on('click','.root',function(){
+			var $text=$(this).find('span').text();
+			$('#tags').val($text);
+		})
 	}
 };
