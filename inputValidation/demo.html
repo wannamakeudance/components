@@ -29,11 +29,11 @@
 			/*
 				id和value为必填项
 			*/ 
-			$('#inputTest').keyup(function(){
+			$('#inputTest').keydown(function(){
 				
 				// 数字校验
 				var $val=$(this).val();
-				var ValFunNum=new ValFun({'id':'#inputTest','value':$val,'maxlen':2});
+				var ValFunNum=new ValFun({'id':'#inputTest','value':$val,'maxlen':5});
 				
 		        // 校验长度
 		        var flag=ValFunNum.length()&&(ValFunNum.number());
