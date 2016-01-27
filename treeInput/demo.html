@@ -2,38 +2,87 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>testTree</title>
+	<title>testTreeInput</title>
 	<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
-	<!-- <script src="../lib/plugins/js/bootstrap.min.js"></script> -->
+	<script src="../lib/plugins/js/jquery-ui.min.js"></script>
 	<script src="../lib/plugins/js/template.js"></script>
 	<script src="checkTree.js"></script>
 	<!-- <link rel="stylesheet" href="../lib/plugins/css/bootstrap.css"> -->
+	<link rel="stylesheet" href="../lib/plugins/css/jquery-ui.min.css">
 	<link rel="stylesheet" href="checkTree.css">
 	<script>
 		
 		$(function(){
-			// 调用tree组件
-			var CheckTreeUI=new CheckTree(
-				{
-					'width':'500px',
-					'url':'../lib/testData/treeShow.json',
-					'uid':'0022',
-					'initId':'2231',//第一次进入页面时请求
-					'scriptId':['root1','root2']//script标签的id，用来渲染模板
-				});
-			CheckTreeUI.initUI();
+
+
+			    var availableTags = [
+			      "ActionScript",
+			      "AppleScript",
+			      "Asp",
+			      "BASIC",
+			      "C",
+			      "C++",
+			      "Clojure",
+			      "COBOL",
+			      "ColdFusion",
+			      "Erlang",
+			      "Fortran",
+			      "Groovy",
+			      "Haskell",
+			      "Java",
+			      "JavaScript",
+			      "Lisp",
+			      "Perl",
+			      "PHP",
+			      "Python",
+			      "Ruby",
+			      "Scala",
+			      "Scheme",
+					"jing"
+			    ];
+
+			    $(document).on('keydown','#tags',function(){
+			    	$('#checkable').hide();
+		    		// 调用autocomplete组件
+				    $( "#tags" ).autocomplete({
+				      source: availableTags
+				    });
+
+			    });		
+			    $(document).on('click','#tags',function(){
+			    	if($('#checkable li').length== 0&&($('#tags').val() == '')){
+				    	// 调用tree组件
+						var CheckTreeUI=new CheckTree(
+							{
+								'width':'500px',
+								'url':'../lib/testData/treeShow.json',
+								'uid':'0022',
+								'initId':'2231',//第一次进入页面时请求
+								'scriptId':['root1','root2']//script标签的id，用来渲染模板
+							});
+						CheckTreeUI.initUI();
+			    	}else if($('#checkable li').length != 0&&($('#tags').val() == '')){
+			    		$('#checkable').show();
+			    	}
+		    	
+			    
+			    });	   
 			
 		});
 		
 	</script>
 </head>
 <body>
-	<!-- start 树初始化 -->
-	<div id="checkable">
+	<div class="ui-widget">
+		<label for="tags">输入框：</label>
+		<input id="tags">
+		<!-- start 树初始化 -->
+		<div id="checkable">
 		<ul></ul>
+		</div>
+		<script type="text/html" id="root1"></script>
+		<script type="text/html" id="root2"></script>
+		<!-- end 树初始化 -->
 	</div>
-	<script type="text/html" id="root1"></script>
-	<script type="text/html" id="root2"></script>
-	<!-- end 树初始化 -->
 </body>
 </html>
