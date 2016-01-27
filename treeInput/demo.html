@@ -13,11 +13,13 @@
 	<script src="inputTree.js"></script>
 	<script>
 		$(function(){
+			// 调用inputTree初始化函数
 			var inputTree=new InputTree({
 				'inputId':'#tags',
 				'treeId':'#checkable',
 				'treeUrl':'../lib/testData/treeShow.json',
-				'uid':'0021',
+				'autoUrl':'../lib/testData/auto.json',
+				'uid':'022',
 				'initId':'2231'
 			});
 			inputTree.initUI();

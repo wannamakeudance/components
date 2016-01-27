@@ -21,36 +21,25 @@ InputTree.prototype={
 		this.confirmTree();
 	},
 	autoComplete:function(){
-		var availableTags = [
-	      "ActionScript",
-	      "AppleScript",
-	      "Asp",
-	      "BASIC",
-	      "C",
-	      "C++",
-	      "Clojure",
-	      "COBOL",
-	      "ColdFusion",
-	      "Erlang",
-	      "Fortran",
-	      "Groovy",
-	      "Haskell",
-	      "Java",
-	      "JavaScript",
-	      "Lisp",
-	      "Perl",
-	      "PHP",
-	      "Python",
-	      "Ruby",
-	      "Scala",
-	      "Scheme"
-	    ];
-	    var _this=this;
+		// alert(this.treeUrl);
+		var _this=this;
+		$.ajax({
+			'url':_this.autoUrl,
+			'data':{},
+			'success':function(data){
+				var data=eval('('+data+')');
+				_this.availableTags=data;
+			},
+			'error':function(){
+				alert('error');
+			}
+		});
+	  
 		$(document).on('keydown',this.inputId,function(){
 	    	$(_this.treeId).slideUp(200,'linear');
     		// 调用autocomplete组件
 		    $( _this.inputId ).autocomplete({
-		      source: availableTags
+		      source: _this.availableTags
 		    });
 	    });	
 	},

@@ -3,6 +3,9 @@
 {
 	"msgInfo":"错误信息",
 	"status":1,
+	"person":{
+
+	},
 	"msgDetail":[
 		{
 			"name":"机构重设",
