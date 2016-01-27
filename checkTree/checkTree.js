@@ -154,7 +154,6 @@ CheckTree.prototype={
 				// 同步操作数据
 				$(this).parents('ul').prev().find('.root').data('choose',false);
 			}
-			
 		});
 	}
 };
