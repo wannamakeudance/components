@@ -142,22 +142,18 @@ CheckTree.prototype={
 	},
 	affectParent:function(){
 		$(document).on('click','#checkable .checkbox',function(){
-			var $sibling=$(this).parents('ul').eq(0).children('li');
-			var $length=$sibling.length;
-			var n=0;
-			for(var i=0; i<$length ;i++){
-				if($sibling.find('.checkbox').eq(i).hasClass('ok')){
-					n++;
+			var $parentCheck=$(this).parents('ul').prev().find('.checkbox');
+			for(var i=$parentCheck.length-1 ;i>=0;i--){
+				var m=0;
+				var $sib=$parentCheck.eq(i).parents('li').eq(0).children('ul').children('li');
+				var $len=$sib.length;
+				for(var j=0; j< $len; j++){
+					if($sib.eq(j).children('.root').find('.checkbox').hasClass('ok')){
+						m++;
+					}
 				}
-			}
-			if(n ==$length){
-				$(this).parents('ul').prev().find('.checkbox').addClass('ok');
-				// 同步操作数据
-				$(this).parents('ul').prev().find('.root').data('choose',true);
-			}else{
-				$(this).parents('ul').prev().find('.checkbox').removeClass('ok');
-				// 同步操作数据
-				$(this).parents('ul').prev().find('.root').data('choose',false);
+				// alert('第'+i+'个父根节点'+'有'+$len+'个直接子级，被点亮的直接子级'+m+'个');
+				m==$len ?$parentCheck.eq(i).addClass('ok') :$parentCheck.eq(i).removeClass('ok');
 			}
 		});
 	}
