@@ -10,66 +10,12 @@
 	<!-- <link rel="stylesheet" href="../lib/plugins/css/bootstrap.css"> -->
 	<link rel="stylesheet" href="../lib/plugins/css/jquery-ui.min.css">
 	<link rel="stylesheet" href="checkTree.css">
+	<script src="inputTree.js"></script>
 	<script>
-		
-	$(function(){
-	    var availableTags = [
-	      "ActionScript",
-	      "AppleScript",
-	      "Asp",
-	      "BASIC",
-	      "C",
-	      "C++",
-	      "Clojure",
-	      "COBOL",
-	      "ColdFusion",
-	      "Erlang",
-	      "Fortran",
-	      "Groovy",
-	      "Haskell",
-	      "Java",
-	      "JavaScript",
-	      "Lisp",
-	      "Perl",
-	      "PHP",
-	      "Python",
-	      "Ruby",
-	      "Scala",
-	      "Scheme",
-			"jing"
-	    ];
-	    $('#checkable').slideUp(200,'linear');
-	    $(document).on('keydown','#tags',function(){
-	    	$('#checkable').slideUp(200,'linear');
-    		// 调用autocomplete组件
-		    $( "#tags" ).autocomplete({
-		      source: availableTags
-		    });
-
-	    });		
-	    $(document).on('click','#tags',function(){
-	    	var $width=$('#tags').width()+'px';
-	    	var $left=$('#tags').offset().left+'px';
-	    	if($('#checkable li').length== 0&&($('#tags').val() == '')){
-		    	// 调用tree组件
-				var CheckTreeUI=new CheckTree(
-					{
-						'width':$width,
-						'left':$left,
-						'position':'absolute',
-						'url':'../lib/testData/treeShow.json',
-						'uid':'0022',
-						'initId':'2231',//第一次进入页面时请求
-						'scriptId':['root1','root2']//script标签的id，用来渲染模板
-					});
-				CheckTreeUI.initUI();
-				$('#checkable').slideDown(500,'linear');
-	    	}else if($('#checkable li').length != 0&&($('#tags').val() == '')){
-	    		$('#checkable').slideDown(500,'linear');
-	    	}
-	    });	   			
-	});
-		
+		$(function(){
+			var inputTree=new InputTree();
+			inputTree.initUI();
+		});
 	</script>
 </head>
 <body>

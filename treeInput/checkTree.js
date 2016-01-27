@@ -76,7 +76,7 @@ CheckTree.prototype={
 			var $this=$(this);
 			var $rootid=$this.parents('li').data('rootid');
 			var $choose=$this.data('choose');
-			alert('传入的choose值'+$choose);
+			alert('此时的data-choose值为：'+$choose);
 			if($this.data('hasLoad')!= 1){
 				$.ajax({
 					url:_this.url,
@@ -153,7 +153,13 @@ CheckTree.prototype={
 					}
 				}
 				// alert('第'+i+'个父根节点'+'有'+$len+'个直接子级，被点亮的直接子级'+m+'个');
-				m==$len ?$parentCheck.eq(i).addClass('ok') :$parentCheck.eq(i).removeClass('ok');
+				if(m ==$len){
+					$parentCheck.eq(i).addClass('ok');
+					$parentCheck.eq(i).parent('.root').data('choose',true);
+				}else{
+					$parentCheck.eq(i).removeClass('ok');
+					$parentCheck.eq(i).parent('.root').data('choose',false);
+				}
 			}
 		});
 	}
