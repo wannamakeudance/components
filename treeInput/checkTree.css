@@ -6,12 +6,12 @@
 }
 #checkable{
 	display: none;
-	text-align: center;
+	text-align: left;
 	border:1px solid #999;
 	min-width: 120px;
 	min-height: 150px;
 	max-height: 300px;
-	overflow: scroll;
+	overflow: auto;
 	/*设置树状组件的最小宽度*/
 }
 ul{
@@ -21,7 +21,7 @@ ul{
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    -webkit-padding-start: 2em;
+    -webkit-padding-start: 1em;
     margin-top: 0.5em;
 }
 li{

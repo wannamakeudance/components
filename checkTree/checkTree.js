@@ -153,7 +153,13 @@ CheckTree.prototype={
 					}
 				}
 				// alert('第'+i+'个父根节点'+'有'+$len+'个直接子级，被点亮的直接子级'+m+'个');
-				m==$len ?$parentCheck.eq(i).addClass('ok') :$parentCheck.eq(i).removeClass('ok');
+				if(m ==$len){
+					$parentCheck.eq(i).addClass('ok');
+					$parentCheck.eq(i).parent('.root').data('choose',true);
+				}else{
+					$parentCheck.eq(i).removeClass('ok');
+					$parentCheck.eq(i).parent('.root').data('choose',false);
+				}
 			}
 		});
 	}

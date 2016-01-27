@@ -38,9 +38,9 @@
 	      "Scheme",
 			"jing"
 	    ];
-
+	    $('#checkable').slideUp(200,'linear');
 	    $(document).on('keydown','#tags',function(){
-	    	$('#checkable').hide();
+	    	$('#checkable').slideUp(200,'linear');
     		// 调用autocomplete组件
 		    $( "#tags" ).autocomplete({
 		      source: availableTags
@@ -63,9 +63,9 @@
 						'scriptId':['root1','root2']//script标签的id，用来渲染模板
 					});
 				CheckTreeUI.initUI();
-				$('#checkable').show();
+				$('#checkable').slideDown(500,'linear');
 	    	}else if($('#checkable li').length != 0&&($('#tags').val() == '')){
-	    		$('#checkable').show();
+	    		$('#checkable').slideDown(500,'linear');
 	    	}
 	    });	   			
 	});

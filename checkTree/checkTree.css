@@ -5,12 +5,12 @@
 	font-family: '微软雅黑';
 }
 #checkable{
-	text-align: center;
+	text-align: left;
 	border:1px solid #999;
 	min-width: 120px;
 	min-height: 150px;
 	max-height: 300px;
-	overflow: scroll;
+	overflow: auto;
 	/*设置树状组件的最小宽度*/
 }
 ul{
