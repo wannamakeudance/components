@@ -15,7 +15,7 @@ function InputTree(type){
 InputTree.prototype={
 	constructor:InputTree,
 	initUI:function(){
-		$('#checkable').slideUp(200,'linear');
+		$(this.treeId).slideUp(200,'linear');
 		this.autoComplete();
 		this.checkTree();
 		this.confirmTree();
@@ -47,7 +47,7 @@ InputTree.prototype={
 	    ];
 	    var _this=this;
 		$(document).on('keydown',this.inputId,function(){
-	    	$('#checkable').slideUp(200,'linear');
+	    	$(_this.treeId).slideUp(200,'linear');
     		// 调用autocomplete组件
 		    $( _this.inputId ).autocomplete({
 		      source: availableTags
@@ -59,22 +59,22 @@ InputTree.prototype={
 		$(document).on('click',this.inputId,function(){
 	    	var $width=$(_this.inputId).width()+'px';
 	    	var $left=$(_this.inputId).offset().left+'px';
-	    	if($('#checkable li').length== 0&&($(_this.inputId).val() == '')){
+	    	if($(_this.treeId+' li').length== 0&&($(_this.inputId).val() == '')){
 		    	// 调用tree组件
 				var CheckTreeUI=new CheckTree(
 					{
 						'width':$width,
 						'left':$left,
 						'position':'absolute',
-						'url':'../lib/testData/treeShow.json',
-						'uid':'0022',
-						'initId':'2231',//第一次进入页面时请求
+						'url':_this.treeUrl,
+						'uid':_this.uid,
+						'initId':_this.initId,//第一次进入页面时请求
 						'scriptId':['root1','root2']//script标签的id，用来渲染模板
 					});
 				CheckTreeUI.initUI();
-				$('#checkable').slideDown(300,'linear');
-	    	}else if($('#checkable li').length != 0&&($(_this.inputId).val() == '')){
-	    		$('#checkable').slideDown(300,'linear');
+				$(_this.treeId).slideDown(300,'linear');
+	    	}else if($(_this.treeId+' li').length != 0&&($(_this.inputId).val() == '')){
+	    		$(_this.treeId).slideDown(300,'linear');
 	    	}
 	    });	
 	},

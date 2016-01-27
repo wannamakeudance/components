@@ -5,6 +5,7 @@
 	font-family: '微软雅黑';
 }
 #checkable{
+	display: none;
 	text-align: left;
 	border:1px solid #999;
 	min-width: 120px;
@@ -20,7 +21,7 @@ ul{
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    -webkit-padding-start: 2em;
+    -webkit-padding-start: 1em;
     margin-top: 0.5em;
 }
 li{
@@ -53,4 +54,10 @@ ul.rootChildren{
 }
 .root span{
 	margin-left: 5px;
+}
+.ui-widget input{
+	font-family: '微软雅黑';
+	font-size: 14px;
+	line-height: 14px;
+	text-align: center;
 }

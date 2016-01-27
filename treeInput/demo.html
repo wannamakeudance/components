@@ -14,21 +14,18 @@
 	<script>
 		$(function(){
 			var inputTree=new InputTree({
-				'inputId':'#tags'
+				'inputId':'#tags',
+				'treeId':'#checkable',
+				'treeUrl':'../lib/testData/treeShow.json',
+				'uid':'0021',
+				'initId':'2231'
 			});
 			inputTree.initUI();
 		});
 	</script>
-	<style>
-	#tags{
-		font-family: '微软雅黑';
-		font-size: 14px;
-		line-height: 14px;
-		text-align: center;
-	}
-	</style>
 </head>
 <body>
+	<!-- start 输入框及下拉框 -->
 	<div class="ui-widget">
 		<label for="tags">输入框：</label>
 		<input id="tags">
@@ -40,5 +37,6 @@
 		<script type="text/html" id="root2"></script>
 		<!-- end 树初始化 -->
 	</div>
+	<!-- end 输入框及下拉框 -->
 </body>
 </html>
