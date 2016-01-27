@@ -13,7 +13,9 @@
 	<script src="inputTree.js"></script>
 	<script>
 		$(function(){
-			var inputTree=new InputTree();
+			var inputTree=new InputTree({
+				'inputId':'#tags'
+			});
 			inputTree.initUI();
 		});
 	</script>

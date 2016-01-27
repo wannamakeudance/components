@@ -43,22 +43,23 @@ InputTree.prototype={
 	      "Python",
 	      "Ruby",
 	      "Scala",
-	      "Scheme",
-			"jing"
+	      "Scheme"
 	    ];
-		$(document).on('keydown','#tags',function(){
+	    var _this=this;
+		$(document).on('keydown',this.inputId,function(){
 	    	$('#checkable').slideUp(200,'linear');
     		// 调用autocomplete组件
-		    $( "#tags" ).autocomplete({
+		    $( _this.inputId ).autocomplete({
 		      source: availableTags
 		    });
 	    });	
 	},
 	checkTree:function(){
-		$(document).on('click','#tags',function(){
-	    	var $width=$('#tags').width()+'px';
-	    	var $left=$('#tags').offset().left+'px';
-	    	if($('#checkable li').length== 0&&($('#tags').val() == '')){
+		var _this=this;
+		$(document).on('click',this.inputId,function(){
+	    	var $width=$(_this.inputId).width()+'px';
+	    	var $left=$(_this.inputId).offset().left+'px';
+	    	if($('#checkable li').length== 0&&($(_this.inputId).val() == '')){
 		    	// 调用tree组件
 				var CheckTreeUI=new CheckTree(
 					{
@@ -72,15 +73,16 @@ InputTree.prototype={
 					});
 				CheckTreeUI.initUI();
 				$('#checkable').slideDown(300,'linear');
-	    	}else if($('#checkable li').length != 0&&($('#tags').val() == '')){
+	    	}else if($('#checkable li').length != 0&&($(_this.inputId).val() == '')){
 	    		$('#checkable').slideDown(300,'linear');
 	    	}
 	    });	
 	},
 	confirmTree:function(){
+		var _this=this;
 		$(document).on('click','.root',function(){
 			var $text=$(this).find('span').text();
-			$('#tags').val($text);
+			$(_this.inputId).val($text);
 		})
 	}
 };
