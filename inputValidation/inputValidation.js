@@ -8,7 +8,7 @@ function ValFun(type){
 	this.width='20px';
 	this.height='10px';
 	this.type='text';
-	this.parent='document.body';
+	this.parent=document.body;
 	this.placeholder='';
 	this.maxlen=10;
 	// 实际传进的参数值
