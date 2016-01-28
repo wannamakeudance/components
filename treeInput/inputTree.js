@@ -86,8 +86,6 @@ InputTree.prototype={
 		}else{
 			// 如果前面有复选框
 			$(document).on('click','.checkbox',function(){
-				// 和保存数据的思路是一样的，只保存根节点，而不保存子节点
-
 				// 选中的是根节点
 				if(!$(this).hasClass('ok')){
 					var $text=$(this).next().text();

@@ -42,26 +42,26 @@ CheckTree.prototype={
 			},
 			success:function(data){
 				var data=eval('('+data+')');
-				if((data.status ==1)&&(_this.type == 'checkbox')){
+				if(data.status ==1){
 					// 首次渲染页面
-					var tmp='{{each msgDetail as value i}}'+
+					if(_this.type =='checkbox'){
+						var tmp='{{each msgDetail as value i}}'+
 								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
-                        			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-                        			'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span>'+
-                        			'</span>'+
-                        		'</li>'+
+		                			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+		                			'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span>'+
+		                			'</span>'+
+		                		'</li>'+
 							'{{/each}}';
-					$('#'+scriptArr[0]).append(tmp);
-					var html=template(scriptArr[0],data);
-					$('#checkable ul').append(html);
-				}else if((data.status ==1)&&(_this.type == 'radio')){
-					var tmp='{{each msgDetail as value i}}'+
+					}else{
+						var tmp='{{each msgDetail as value i}}'+
 								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
                         			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
                         			'<span>{{value.name}}</span></span>'+
                         			'</span>'+
                         		'</li>'+
 							'{{/each}}';
+					}
+					
 					$('#'+scriptArr[0]).append(tmp);
 					var html=template(scriptArr[0],data);
 					$('#checkable ul').append(html);
