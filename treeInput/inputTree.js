@@ -1,3 +1,4 @@
+// 存储数据
 function InputTree(type){
 	this.arg=type;
 	this.html='';
@@ -21,11 +22,13 @@ InputTree.prototype={
 		this.confirmTree();
 	},
 	autoComplete:function(){
-		// alert(this.treeUrl);
 		var _this=this;
 		$.ajax({
 			'url':_this.autoUrl,
-			'data':{},
+			// data数据
+			'data':{
+				uid:_this.uid
+			},
 			'success':function(data){
 				var data=eval('('+data+')');
 				_this.availableTags=data;
@@ -69,9 +72,12 @@ InputTree.prototype={
 	},
 	confirmTree:function(){
 		var _this=this;
+		_this.text='';
 		$(document).on('click','.root',function(){
 			var $text=$(this).find('span').text();
-			$(_this.inputId).val($text);
+			_this.text+=$text+'，';
+			$(_this.inputId).val(_this.text.substring(0,_this.text.length-1));
+			$(_this.inputId).attr('title',_this.text.substring(0,_this.text.length-1));
 		})
 	}
 };
