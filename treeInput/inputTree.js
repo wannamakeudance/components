@@ -57,6 +57,7 @@ InputTree.prototype={
 					{
 						'width':$width,
 						'left':$left,
+						'type':_this.treeType,
 						'position':'absolute',
 						'url':_this.treeUrl,
 						'uid':_this.uid,
@@ -74,28 +75,34 @@ InputTree.prototype={
 	confirmTree:function(){
 		var _this=this;
 		_this.text='';
-		// 如果前面没有复选框时
-		// $(document).on('click','.root',function(){
-		// 	var $text=$(this).find('span').text();
-		// 	_this.text+=$text+'，';
-		// 	$(_this.inputId).val(_this.text.substring(0,_this.text.length-1));
-		// 	$(_this.inputId).attr('title',_this.text.substring(0,_this.text.length-1));
-		// })
-		// 如果前面有复选框
-		$(document).on('click','.checkbox',function(){
-			// 和保存数据的思路是一样的，只保存根节点，而不保存子节点
-
-			// 选中的是根节点
-			if(!$(this).hasClass('ok')){
-				var $text=$(this).next().text();
-				// input里面没有存在的值
-				($(_this.inputId).val().indexOf($text) == -1)?_this.text+=$text+'，':_this.text=_this.text;
+		if(_this.treeType == 'radio'){
+			// 如果前面没有复选框时
+			$(document).on('click','.root',function(){
+				var $text=$(this).find('span').text();
+				_this.text+=$text+'，';
 				$(_this.inputId).val(_this.text.substring(0,_this.text.length-1));
-				$(_this.inputId).attr('title',_this.text.substring(0,_this.text.length-1));			
-			}
-			//选中的是子节点
+				$(_this.inputId).attr('title',_this.text.substring(0,_this.text.length-1));
+			})
+		}else{
+			// 如果前面有复选框
+			$(document).on('click','.checkbox',function(){
+				// 和保存数据的思路是一样的，只保存根节点，而不保存子节点
+
+				// 选中的是根节点
+				if(!$(this).hasClass('ok')){
+					var $text=$(this).next().text();
+					// input里面没有存在的值
+					($(_this.inputId).val().indexOf($text) == -1)?_this.text+=$text+'，':_this.text=_this.text;
+					$(_this.inputId).val(_this.text.substring(0,_this.text.length-1));
+					$(_this.inputId).attr('title',_this.text.substring(0,_this.text.length-1));			
+				}else{
+
+				}
+				//选中的是子节点
+			
+			})
+		}
 
 		
-		})
 	}
 };

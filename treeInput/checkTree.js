@@ -42,12 +42,23 @@ CheckTree.prototype={
 			},
 			success:function(data){
 				var data=eval('('+data+')');
-				if(data.status ==1){
+				if((data.status ==1)&&(_this.type == 'checkbox')){
 					// 首次渲染页面
 					var tmp='{{each msgDetail as value i}}'+
 								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
                         			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
                         			'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span>'+
+                        			'</span>'+
+                        		'</li>'+
+							'{{/each}}';
+					$('#'+scriptArr[0]).append(tmp);
+					var html=template(scriptArr[0],data);
+					$('#checkable ul').append(html);
+				}else if((data.status ==1)&&(_this.type == 'radio')){
+					var tmp='{{each msgDetail as value i}}'+
+								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
+                        			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+                        			'<span>{{value.name}}</span></span>'+
                         			'</span>'+
                         		'</li>'+
 							'{{/each}}';
@@ -76,7 +87,7 @@ CheckTree.prototype={
 			var $this=$(this);
 			var $rootid=$this.parents('li').data('rootid');
 			var $choose=$this.data('choose');
-			alert('此时的data-choose值为：'+$choose);
+			alert('传入的choose值'+$choose);
 			if($this.data('hasLoad')!= 1){
 				$.ajax({
 					url:_this.url,
@@ -89,12 +100,22 @@ CheckTree.prototype={
 						var data=eval('('+data+')');
 						//父节点有孩子且status是1时点击才进行请求； 
 						if(data.status ==1&&($this.parents('li').hasClass('hasChildren'))){
-	      					var tmp='<ul class="rootChildren">'+
+							if(_this.type == 'checkbox'){
+								var tmp='<ul class="rootChildren">'+
+      								'{{each msgDetail as value i}}'+
+      									'<li  data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+      									'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span></li>'+
+      								'{{/each}}'+
+      							'</ul>';
+							}else{
+									var tmp='<ul class="rootChildren">'+
 	      								'{{each msgDetail as value i}}'+
 	      									'<li  data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-	      									'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span></li>'+
+	      									'<span>{{value.name}}</span></span></li>'+
 	      								'{{/each}}'+
 	      							'</ul>';
+							}
+	      		
 							$('#'+scriptArr[1]).append(tmp);
 							var html=template(scriptArr[1],data);
 							$this.parent().append(html);		
