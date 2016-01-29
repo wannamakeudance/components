@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
+	<script src="../lib/plugins/js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="../lib/plugins/css/jquery-ui.min.css">
+	 <style>
+  #project-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  #project-icon {
+    float: left;
+    height: 32px;
+    width: 32px;
+  }
+  #project-description {
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+  <script>
+  $(function() {
+    var projects = [
+      {
+        value: "jquery",
+        label: "1",
+        desc: "the write less, do more, JavaScript library",
+        icon: "jquery_32x32.png"
+      },
+      {
+        value: "jquery-ui",
+        label: "2 UI",
+        desc: "the official user interface library for jQuery",
+        icon: "jqueryui_32x32.png"
+      },
+      {
+        value: "sizzlejs",
+        label: "3 JS",
+        desc: "a pure-JavaScript CSS selector engine",
+        icon: "sizzlejs_32x32.png"
+      }
+    ];
+ 
+    $( "#project" ).autocomplete({
+      minLength: 0,
+      source: projects,
+      // focus: function( event, ui ) {
+      //   $( "#project" ).val( ui.item.label );
+      //   return false;
+      // },
+      select: function( event, ui ) {
+        $( "#project" ).val( ui.item.value );
+        $( "#project-id" ).val( ui.item.desc);
+        alert($('#project-id').val());
+        return false;
+      }
+    })
+
+    // .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+    //   return $( "<li>" )
+    //     .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+    //     .appendTo( ul );
+    // };
+  });
+  </script>
+</head>
+<body>
+	<div id="project-label">选择一个项目（请键入 "j"）：</div>
+	<img id="project-icon" src="images/transparent_1x1.png" class="ui-state-default" alt="">
+	<input id="project">
+	<input type="hidden" id="project-id">
+	<!-- <p id="project-description"></p> -->
+</body>
+</html>

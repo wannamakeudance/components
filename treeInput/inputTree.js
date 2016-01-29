@@ -46,7 +46,14 @@ InputTree.prototype={
 	    	$(_this.treeId).slideUp(200,'linear');
     		// 调用autocomplete组件
 		    $( _this.inputId ).autocomplete({
-		      source: _this.availableTags
+		      minLength: 0,
+		      source: _this.availableTags,
+		      select: function( event, ui ) {
+		        $(_this.inputId).val( ui.item.name );
+		        $( "#project-id" ).val( ui.item.desc);
+		        alert($('#project-id').val());
+		        return false;
+			  }
 		    });
 	    });	
 	},

@@ -1,32 +1,30 @@
 [
-  "ActionScript",
-  "a1",
-  "a2",
-  "a13",
-  "a14",
-  "a5",
-  "a15",
-  "a17",
-  "a18",
-  "AppleScript",
-  "Asp",
-  "BASIC",
-  "C",
-  "C++",
-  "Clojure",
-  "COBOL",
-  "ColdFusion",
-  "Erlang",
-  "Fortran",
-  "Groovy",
-  "Haskell",
-  "Java",
-  "JavaScript",
-  "Lisp",
-  "Perl",
-  "PHP",
-  "Python",
-  "Ruby",
-  "Scala",
-  "Scheme"
+  {
+        "label": "jquery",
+        "desc":"0092"
+    },
+    {
+        "label": "ui",
+        "desc":"0082"
+    },
+    {
+        "label": "aaa",
+        "desc":"022"
+    },
+    {
+        "label": "showMonthAfterYear",
+        "desc":"00802"
+    },
+    {
+        "label": "isover",
+        "desc":"008211"
+    },
+    {
+        "label": "button",
+        "desc":"00ss82"
+    },
+    {
+        "label": "xhr",
+        "desc":"s992"
+    }
 ]
