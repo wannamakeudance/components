@@ -26,6 +26,15 @@
 .tri.hasChildren.open{
 	background: url(../lib/imgs/triTop.png) no-repeat;
 }
+.doc{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../lib/imgs/p1.png) no-repeat;
+}
+.doc.open{
+	background:  url(../lib/imgs/p2.png) no-repeat;
+}
 ul{
     display: block;
     list-style-type: disc;
@@ -35,6 +44,7 @@ ul{
 }
 li{
 	background: url(../lib/imgs/line.png) repeat-y;
+	padding-top: 0.5em;
 	list-style: none;
 	display: list-item;
 	text-align: -webkit-match-parent;
