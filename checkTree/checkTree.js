@@ -48,7 +48,7 @@ CheckTree.prototype={
 					// 首次渲染页面
 					if(_this.type =='checkbox'){
 						var tmp='{{each msgDetail as value i}}'+
-								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
+								 '<li class="check {{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
 		                			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
 		                			'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span>'+
 		                			'</span>'+
@@ -107,7 +107,7 @@ CheckTree.prototype={
 							if(_this.type == 'checkbox'){
 								var tmp='<ul class="rootChildren">'+
       								'{{each msgDetail as value i}}'+
-      									'<li  data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+      									'<li class="check" data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
       									'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span></li>'+
       								'{{/each}}'+
       							'</ul>';
