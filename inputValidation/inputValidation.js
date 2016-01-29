@@ -33,7 +33,7 @@ ValFun.prototype={
 		return re.test(this.value);
 	},
 	length:function(){
-		if(this.value.length>this.maxlen){
+		if(this.value.length>=this.maxlen){
 			return false;
 		}else{
 			return true;

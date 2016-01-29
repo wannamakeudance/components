@@ -3,32 +3,29 @@
 {
 	"msgInfo":"错误信息",
 	"status":1,
-	"person":{
-
-	},
 	"msgDetail":[
 		{
 			"name":"机构重设",
 			"id":"0015",
 			"allChoose":true,
-			"collection":1,
-			"checked":0,
+			// "collection":1,
+			// "checked":0,
 			"hasChildren":true
 		},
 		{
 			"name":"岗位管理",
 			"id":"0019",
 			"allChoose":true,
-			"collection":1,
-			"checked":0,
+			// "collection":1,
+			// "checked":0,
 			"hasChildren":false
 		},
 		{
 			"name":"岗位调剂",
 			"id":"0029",
 			"allChoose":true,
-			"collection":1,
-			"checked":0,
+			// "collection":1,
+			// "checked":0,
 			"hasChildren":false
 		}
 	]	

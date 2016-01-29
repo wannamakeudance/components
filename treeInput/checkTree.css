@@ -5,13 +5,13 @@
 	font-family: '微软雅黑';
 }
 #checkable{
-	display: none;
+	/*display: none;*/
 	text-align: left;
 	border:1px solid #999;
 	min-width: 120px;
 	min-height: 150px;
 	max-height: 300px;
-	overflow: auto;
+	overflow: scroll;
 	/*设置树状组件的最小宽度*/
 }
 ul{
@@ -60,4 +60,7 @@ ul.rootChildren{
 	font-size: 14px;
 	line-height: 14px;
 	text-align: center;
+}
+.root.on{
+	font-weight: bold;
 }

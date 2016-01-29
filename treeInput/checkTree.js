@@ -4,6 +4,7 @@
 // 最小宽度的设置要考虑到层级数目，不然可能一部分会看不到
 // 可以设置最大高度和最小高度，如果超出设置的时候，显示出滚轮
 // 可以设置显示的图片及交互时的效果
+// 所有的宽高都是根据栅格化来的；
 // 传入的参数包括：层级数，是否显示复选框，每一层级的数据（name）;还要判断是否已经更改过数据，如果没有更改直接不传数据
 function CheckTree(type){
 	this.arg=type;
@@ -29,6 +30,7 @@ CheckTree.prototype={
 		this.checkbox();
 		this.chooseAll();
 		this.affectParent();
+		this.hover();
 	},
 	setType:function(){
 		var _this=this;
@@ -76,6 +78,8 @@ CheckTree.prototype={
 	},
 	setWidth:function(){
 		$('#checkable').css('width',this.width);
+		// 用栅格化的类名
+		// $('#checkable').addClass('col-md-2');
 	},
 	setLeft:function(){
 		$('#checkable').css({'position':this.position,'left':this.left});
@@ -182,6 +186,17 @@ CheckTree.prototype={
 					$parentCheck.eq(i).parent('.root').data('choose',false);
 				}
 			}
+		});
+	},
+	hover:function(){
+		// 滑过树状时变色
+		$(document).on('mouseover','li',function(){
+			$(this).children('.root').addClass('on');
+			return false;
+		});
+		$(document).on('mouseout','li',function(){
+			$(this).children('.root').removeClass('on');
+			return false;
 		});
 	}
 };
