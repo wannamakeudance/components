@@ -52,6 +52,9 @@ li{
 	display: list-item;
 	text-align: -webkit-match-parent;
 }
+li.check{
+	background:url();
+}
 .checkbox,li,.rootChildren{
 	cursor: pointer;
 }

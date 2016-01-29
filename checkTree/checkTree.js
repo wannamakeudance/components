@@ -107,7 +107,7 @@ CheckTree.prototype={
 							if(_this.type == 'checkbox'){
 								var tmp='<ul class="rootChildren">'+
       								'{{each msgDetail as value i}}'+
-      									'<li class="check" data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+      									'<li class="check {{if value.hasChildren ==true}}hasChildren{{/if}}" data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
       									'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span>{{value.name}}</span></span></li>'+
       								'{{/each}}'+
       							'</ul>';
@@ -128,6 +128,7 @@ CheckTree.prototype={
 							$this.children('span').find('.doc').toggleClass('open');
 							
 						}else{
+							_this.tipsModal();
 							$('#myModal').modal();
 							return false;
 						}
@@ -202,5 +203,18 @@ CheckTree.prototype={
 			$(this).children('.root').removeClass('on');
 			return false;
 		});
+	},
+	tipsModal:function(){
+		var html='<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+  				'<div class="modal-dialog" role="document">'+
+   				'<div class="modal-content">'+
+     			'<div class="modal-footer">'+
+        			'<span style="float: left;">抱歉该层没有子级</span>'+
+        			'<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>'+
+      			'</div>'+
+    			'</div>'+
+				'</div>'+
+				'</div>';
+		$(document.body).append(html);
 	}
 };
