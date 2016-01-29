@@ -14,20 +14,46 @@
 	overflow: scroll;
 	/*设置树状组件的最小宽度*/
 }
+.tri{
+	display: inline-block;
+	width: 16px;
+	height: 9px;
+	background: url(../lib/imgs/lineW.png) no-repeat center;
+}
+.tri.hasChildren{
+	background: url(../lib/imgs/triRight.png) no-repeat;
+}
+.tri.hasChildren.open{
+	background: url(../lib/imgs/triTop.png) no-repeat;
+}
+.doc{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../lib/imgs/p3.png) no-repeat;
+}
+.doc.hasChildren{
+	background: url(../lib/imgs/p1.png) no-repeat;
+}
+.doc.hasChildren.open{
+	background:  url(../lib/imgs/p2.png) no-repeat;
+}
 ul{
     display: block;
     list-style-type: disc;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     -webkit-padding-start: 1em;
-    margin-top: 0.5em;
 }
 li{
+	background: url(../lib/imgs/line.png) repeat-y;
+	padding-top: 0.5em;
 	list-style: none;
 	display: list-item;
 	text-align: -webkit-match-parent;
+}
+li.check{
+	background:url();
 }
 .checkbox,li,.rootChildren{
 	cursor: pointer;

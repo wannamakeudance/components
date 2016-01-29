@@ -3,7 +3,7 @@ function InputTree(type){
 	this.arg=type;
 	this.html='';
 	// 设置默认值
-	this.width='30px';
+	this.width='200px';
 	this.left='0px';
 	this.position='absolute';
 	this.type='radio';//单选or复选出现复选框
@@ -17,9 +17,13 @@ InputTree.prototype={
 	constructor:InputTree,
 	initUI:function(){
 		$(this.treeId).slideUp(200,'linear');
+		this.setWidth();
 		this.autoComplete();
 		this.checkTree();
 		this.confirmTree();
+	},
+	setWidth:function(){
+		$(this.inputId).css('width',this.width);
 	},
 	autoComplete:function(){
 		var _this=this;
