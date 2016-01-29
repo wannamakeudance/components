@@ -30,9 +30,12 @@
 	display: inline-block;
 	width: 20px;
 	height: 20px;
+	background: url(../lib/imgs/p3.png) no-repeat;
+}
+.doc.hasChildren{
 	background: url(../lib/imgs/p1.png) no-repeat;
 }
-.doc.open{
+.doc.hasChildren.open{
 	background:  url(../lib/imgs/p2.png) no-repeat;
 }
 ul{

@@ -58,7 +58,7 @@ CheckTree.prototype={
 						var tmp='{{each msgDetail as value i}}'+
 								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
                         			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-                        			'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc"></i>{{value.name}}</span></span>'+
+                        			'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span>'+
                         			'</span>'+
                         		'</li>'+
 							'{{/each}}';
@@ -128,7 +128,7 @@ CheckTree.prototype={
 							$this.children('span').find('.doc').toggleClass('open');
 							
 						}else{
-							alert('该层没有子级');
+							$('#myModal').modal();
 							return false;
 						}
 						// 作为请求过的标识
