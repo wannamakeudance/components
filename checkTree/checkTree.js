@@ -115,7 +115,7 @@ CheckTree.prototype={
 									var tmp='<ul class="rootChildren">'+
 	      								'{{each msgDetail as value i}}'+
 	      									'<li  data-rootId="{{value.id}}" class="{{if value.hasChildren == true}}hasChildren{{/if}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-	      									'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc"></i>{{value.name}}</span></span></li>'+
+	      									'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span></li>'+
 	      								'{{/each}}'+
 	      							'</ul>';
 							}
