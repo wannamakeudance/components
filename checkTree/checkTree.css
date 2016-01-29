@@ -46,14 +46,13 @@ ul{
     -webkit-padding-start: 1em;
 }
 li{
-	background: url(../lib/imgs/line.png) repeat-y;
 	padding-top: 0.5em;
 	list-style: none;
 	display: list-item;
 	text-align: -webkit-match-parent;
 }
-li.check{
-	background:url();
+li.radiobox{
+	background: url(../lib/imgs/line.png) repeat-y;
 }
 .checkbox,li,.rootChildren{
 	cursor: pointer;

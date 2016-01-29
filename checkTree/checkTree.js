@@ -48,7 +48,7 @@ CheckTree.prototype={
 					// 首次渲染页面
 					if(_this.type =='checkbox'){
 						var tmp='{{each msgDetail as value i}}'+
-								 '<li class="check {{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
+								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
 		                			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
 		                			'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span>'+
 		                			'</span>'+
@@ -56,7 +56,7 @@ CheckTree.prototype={
 							'{{/each}}';
 					}else{
 						var tmp='{{each msgDetail as value i}}'+
-								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
+								 '<li class="radiobox {{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
                         			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
                         			'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span>'+
                         			'</span>'+
@@ -107,14 +107,14 @@ CheckTree.prototype={
 							if(_this.type == 'checkbox'){
 								var tmp='<ul class="rootChildren">'+
       								'{{each msgDetail as value i}}'+
-      									'<li class="check {{if value.hasChildren ==true}}hasChildren{{/if}}" data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+      									'<li class="{{if value.hasChildren ==true}}hasChildren{{/if}}" data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
       									'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span></li>'+
       								'{{/each}}'+
       							'</ul>';
 							}else{
 									var tmp='<ul class="rootChildren">'+
 	      								'{{each msgDetail as value i}}'+
-	      									'<li  data-rootId="{{value.id}}" class="{{if value.hasChildren == true}}hasChildren{{/if}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+	      									'<li  data-rootId="{{value.id}}" class="radiobox {{if value.hasChildren == true}}hasChildren{{/if}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
 	      									'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span></li>'+
 	      								'{{/each}}'+
 	      							'</ul>';
