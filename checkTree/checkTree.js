@@ -58,7 +58,7 @@ CheckTree.prototype={
 						var tmp='{{each msgDetail as value i}}'+
 								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.id}}">'+
                         			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-                        			'<span>{{value.name}}</span></span>'+
+                        			'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span>{{value.name}}</span></span>'+
                         			'</span>'+
                         		'</li>'+
 							'{{/each}}';
@@ -102,8 +102,8 @@ CheckTree.prototype={
 					},
 					success:function(data){
 						var data=eval('('+data+')');
-						//父节点有孩子且status是1时点击才进行请求； 
-						if(data.status ==1&&($this.parents('li').hasClass('hasChildren'))){
+						//父节点有孩子且status是1时点击才进行请求；
+						if(data.status ==1&&($this.parents('li').eq(0).hasClass('hasChildren'))){
 							if(_this.type == 'checkbox'){
 								var tmp='<ul class="rootChildren">'+
       								'{{each msgDetail as value i}}'+
@@ -114,8 +114,8 @@ CheckTree.prototype={
 							}else{
 									var tmp='<ul class="rootChildren">'+
 	      								'{{each msgDetail as value i}}'+
-	      									'<li  data-rootId="{{value.id}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-	      									'<span>{{value.name}}</span></span></li>'+
+	      									'<li  data-rootId="{{value.id}}" class="{{if value.hasChildren == true}}hasChildren{{/if}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
+	      									'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span>{{value.name}}</span></span></li>'+
 	      								'{{/each}}'+
 	      							'</ul>';
 							}
@@ -124,6 +124,7 @@ CheckTree.prototype={
 							var html=template(scriptArr[1],data);
 							$this.parent().append(html);		
 							$this.parent().children('.rootChildren').slideToggle(200,'linear');
+							$this.children('.tri').toggleClass('open');
 							
 						}else{
 							alert('该层没有子级');
@@ -138,6 +139,7 @@ CheckTree.prototype={
 				});
 			}else{
 				$this.parent().children('.rootChildren').slideToggle(200,'linear');
+				$this.children('.tri').toggleClass('open');
 			}		
 		});
 	},
