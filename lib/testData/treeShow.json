@@ -6,7 +6,7 @@
 	"msgDetail":[
 		{
 			"name":"机构重设",
-			"id":"0015",
+			"funId":"0015",
 			"allChoose":true,
 			// "collection":1,
 			// "checked":0,
@@ -14,7 +14,7 @@
 		},
 		{
 			"name":"岗位管理",
-			"id":"0019",
+			"funId":"0019",
 			"allChoose":true,
 			// "collection":1,
 			// "checked":0,
@@ -22,7 +22,7 @@
 		},
 		{
 			"name":"岗位调剂",
-			"id":"0029",
+			"funId":"0029",
 			"allChoose":true,
 			// "collection":1,
 			// "checked":0,

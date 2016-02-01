@@ -51,7 +51,6 @@ InputTree.prototype={
 		      select: function( event, ui ) {
 		        $(_this.inputId).val( ui.item.name );
 		        $( "#project-id" ).val( ui.item.desc);
-		        alert($('#project-id').val());//弹出id值
 		        _this.searchResult();
 		        return false;
 			  }
@@ -115,6 +114,7 @@ InputTree.prototype={
 	},
 	searchResult:function(){
 		var _this=this;
+		alert($("#project-id").val());
 		$.ajax({
 			url:'',
 			data:{},
@@ -122,6 +122,10 @@ InputTree.prototype={
 				// 搜索成功之后展示出树
 				$(_this.treeId).slideDown(300,'linear');	
 				// 寻找搜索关键词的最根节点，进行展开并且置顶
+				$('li[data-rootid='+$('#project-id').val()+']>.root').addClass('on');
+				// $('#checkable >ul').scrollTop(300);
+				// 如果孩子展开过直接slideDown，如果没有则直接异步请求
+				$('li[data-rootid='+$('#project-id').val()+']').find('ul').slideDown(200,'linear');
 			},
 			error:function(){
 				alert('error');
