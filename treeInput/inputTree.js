@@ -51,7 +51,8 @@ InputTree.prototype={
 		      select: function( event, ui ) {
 		        $(_this.inputId).val( ui.item.name );
 		        $( "#project-id" ).val( ui.item.desc);
-		        alert($('#project-id').val());
+		        alert($('#project-id').val());//弹出id值
+		        _this.searchResult();
 		        return false;
 			  }
 		    });
@@ -111,7 +112,20 @@ InputTree.prototype={
 			
 			})
 		}
-
-		
+	},
+	searchResult:function(){
+		var _this=this;
+		$.ajax({
+			url:'',
+			data:{},
+			success:function(){
+				// 搜索成功之后展示出树
+				$(_this.treeId).slideDown(300,'linear');	
+				// 寻找搜索关键词的最根节点，进行展开并且置顶
+			},
+			error:function(){
+				alert('error');
+			}
+		});
 	}
 };
