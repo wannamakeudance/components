@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+	<link rel="stylesheet" href="../lib/plugins/css/bootstrap.css">
+	<link rel="stylesheet" href="../lib/plugins/css/style.min.css">
+
+	<link rel="stylesheet" href="../lib/plugins/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="table.css">
+</head>
+<body>
+<!-- <div class="test"> -->
+	<div class="table-responsive" id="sourceDataTable">
+	  <table class="table">
+	    <thead>
+	    	<tr>
+	    		<th>序号</th>
+	    		<th>名称</th>
+	    		<th>分类</th>
+	    		<th>类型</th>
+	    		<th>验证规则</th>
+	    		<th>必填</th>
+	    		<th>描述</th>
+	    	</tr>
+	    </thead>
+	    <tbody>
+	    	<tr>
+	    		<td>
+	    			<div>1</div>
+	    		</td>
+	    		<td>
+					<div class="edit pointer">创建时间</div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select1"> 
+							<span class="cur-select  f-s-14">时间</span> 
+							   	<select class="form-control">
+							   		<option value="1">时间</option>
+							   		<option value="2">文本</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td class="timeType">
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select2"> 
+							<span class="cur-select  f-s-14">时间格式</span> 
+							   	<select class="form-control">
+							   		<option value="1">时间格式</option>
+							   		<option value="2">文本格式</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>	
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select3"> 
+							<span class="cur-select  f-s-14">验证规则</span> 
+							   	<select class="form-control">
+							   		<option value="1">10</option>
+							   		<option value="2">20</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer check on"><i>√</i></div>
+	    		</td>
+	    		<td>
+	    			<div class="edit pointer">创建时间是指该信息项目创建时间是指该信息项目创建时间是指该信息项目</div>
+	    		</td>
+	    	</tr>
+	    	<!-- 空白，待新建 -->
+			<tr>
+	    		<td>
+	    			<div>2</div>
+	    		</td>
+	    		<td>
+					<div class="edit pointer"></div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select1"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">时间</option>
+							   		<option value="2">文本</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td class="timeType">
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select2"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">时间格式</option>
+							   		<option value="2">文本格式</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>	
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select3"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">10</option>
+							   		<option value="2">20</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer check"><i>√</i></div>
+	    		</td>
+	    		<td>
+	    			<div class="edit pointer"></div>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td>
+	    			<div>3</div>
+	    		</td>
+	    		<td>
+					<div class="edit pointer"></div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select1"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">时间</option>
+							   		<option value="2">文本</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td class="timeType">
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select2"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">时间格式</option>
+							   		<option value="2">文本格式</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>	
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select3"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">10</option>
+							   		<option value="2">20</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer check"><i>√</i></div>
+	    		</td>
+	    		<td>
+	    			<div class="edit pointer"></div>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td>
+	    			<div>4</div>
+	    		</td>
+	    		<td>
+					<div class="edit pointer"></div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select1"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">时间</option>
+							   		<option value="2">文本</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td class="timeType">
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select2"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">时间格式</option>
+							   		<option value="2">文本格式</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>	
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select3"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">10</option>
+							   		<option value="2">20</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer check"><i>√</i></div>
+	    		</td>
+	    		<td>
+	    			<div class="edit pointer"></div>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td>
+	    			<div>5</div>
+	    		</td>
+	    		<td>
+					<div class="edit pointer"></div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select1"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">时间</option>
+							   		<option value="2">文本</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td class="timeType">
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select2"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">时间格式</option>
+							   		<option value="2">文本格式</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>	
+	    		</td>
+	    		<td>
+	    			<div class="pointer">
+					    <a class="btn-select" id="btn_select3"> 
+							<span class="cur-select  f-s-14"></span> 
+							   	<select class="form-control">
+							   		<option value="1">10</option>
+							   		<option value="2">20</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+	    			</div>
+	    		</td>
+	    		<td>
+	    			<div class="pointer check"><i>√</i></div>
+	    		</td>
+	    		<td>
+	    			<div class="edit pointer"></div>
+	    		</td>
+	    	</tr>
+	    </tbody>
+<!-- </div>	     -->
+	  </table>
+	</div>
+	<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
+	<script src="../lib/plugins/js/jquery-ui.min.js"></script>
+	<script src="../lib/plugins/js/bootstrap.min.js"></script>
+	<script src="../lib/plugins/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="table.js"></script>
+
+</body>
+</html>

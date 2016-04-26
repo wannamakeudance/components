@@ -1,0 +1,141 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../lib/plugins/css/bootstrap.css">
+		<link rel="stylesheet" href="../lib/plugins/css/style.min.css">
+		<link rel="stylesheet" href="sourceDataSetting.css">
+		<title>源数据授权页面</title>
+	</head>
+	<body>
+	<!-- start 测试按钮 -->
+		<button class="btn default" data-toggle="modal" data-target="#sourceDataSetting1">点击弹出</button>
+	<!-- end 测试按钮 -->
+
+		<!-- start 步骤一 -->
+		<div class="modal fade  sourceDataSetting" id="sourceDataSetting1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<!-- start 指引按钮 -->
+			<div class="modal-guide clearfix m-t-20">
+				<div class="page1">
+					<span class="circle">1</span>
+					<p class="f-s-16 m-t-10">创建信息集</p>
+				</div>
+				<div class="line"></div>
+				<div class="page2"  data-dismiss="modal" data-toggle="modal" data-target="#sourceDataSetting2">
+					<span class="circle">2</span>
+					<p class="f-s-16 m-t-10">增加信息项</p>
+				</div>
+			</div>
+			<!-- end 指引按钮 -->
+			<!-- start 弹出层主体-->
+			 <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title f-w-600 f-s-16" id="myModalLabel"> <span class="circle m-r-10">1</span>创建信息集</h4>
+			        <h5 class="p-l-30 f-s-12">此处是创建信息集的描述性文字</h5>
+			      </div>
+			      <div class="modal-body p-l-40">
+			       	<form>
+					  <div class="form-group m-l-5 first">
+					    <label for="exampleInputEmail1" class="f-s-16 f-w-600 m-b-15">信息集名称</label>
+					    <input type="text" class="form-control f-s-14" id="exampleInputEmail1" placeholder="请输入名称">
+					  </div>
+				
+					  <div class="form-group m-l-5">		
+					    <label for="exampleInputFile" class="f-s-16 f-w-600  m-b-15">分类</label>
+					    <a class="btn-select" id="btn_select1"> 
+							<span class="cur-select  f-s-14">选择分类</span> 
+							   	<select class="form-control">
+							   		<option value="1">1</option>
+							   		<option value="2">2</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>
+						</a>
+					  </div>
+					  <div class="form-group m-l-20">
+					    <label for="exampleInputFile" class="f-s-16 f-w-600  m-b-15">所属对象</label>
+					   	<a class="btn-select" id="btn_select2"> 
+							<span class="cur-select f-s-14">选择所属对象</span> 
+							   	<select class="form-control">
+							   		<option value="1">1</option>
+							   		<option value="2">2</option>
+							   		<option value="0" selected="" style="display: none;"></option>
+							   	</select>
+							 </span>	
+						</a>
+					  </div>
+					   <div class="form-group m-l-5 last">
+					    <label for="exampleInputEmail1" class="f-s-16 f-w-600  m-b-15">描述</label>
+					    <input type="text" class="form-control  f-s-14" id="exampleInputEmail1" placeholder="为信息集添加描述">
+					  </div>
+					</form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default done" data-dismiss="modal">完成</button>
+			        <button type="button" class="btn btn-default next m-l-20" data-dismiss="modal" data-toggle="modal" data-target="#sourceDataSetting2">下一步</button>
+			      </div>
+			    </div>
+			  </div>
+			 <!-- end 弹出层主体 -->
+		</div>
+		<!-- end 步骤一 -->
+
+		<!-- start 步骤二 -->
+		<div class="modal fade  sourceDataSetting" id="sourceDataSetting2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<!-- start 指引按钮 -->
+			<div class="modal-guide clearfix m-t-20">
+				<div class="page1"  data-dismiss="modal" data-toggle="modal" data-target="#sourceDataSetting1">
+					<span class="circle">1</span>
+					<p class="f-s-16 m-t-10">创建信息集</p>
+				</div>
+				<div class="line"></div>
+				<div class="page2">
+					<span class="circle">2</span>
+					<p class="f-s-16 m-t-10">增加信息项</p>
+				</div>
+			</div>
+			<!-- end 指引按钮 -->
+			<!-- start 弹出层主体-->
+			 <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title f-w-600 f-s-16" id="myModalLabel"> <span class="circle m-r-10">2</span>增加信息项</h4>
+			        <h5 class="p-l-30 f-s-12">此处是增加信息项的描述性文字</h5>
+			      </div>
+			      <div class="modal-body">
+			      	<iframe src="table.html" frameborder="0"></iframe>
+	
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default done" data-dismiss="modal" data-toggle="modal" data-target="#sourceDataSetting1">上一步</button>
+			        <button type="button" class="btn btn-default next m-l-20" data-dismiss="modal">完成</button>
+			      </div>
+			    </div>
+			  </div>
+			 <!-- end 弹出层主体 -->
+		</div>
+		<!-- end 步骤二 -->
+		<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
+		<script src="../lib/plugins/js/bootstrap.min.js"></script>
+		<script>
+			$(function(){
+				selectComponent("#btn_select1");
+				selectComponent('#btn_select2');
+				function selectComponent(selId){
+					var $btnSelect = $(selId); 
+					var $curSelect = $btnSelect.find('.cur-select');
+					var oSelect = $btnSelect.find('select')[0];
+					var $aOption = $btnSelect.find('option');
+
+					oSelect.onchange = function () { 
+						var text=oSelect.options[oSelect.selectedIndex].text; 
+						$curSelect.html(text);
+					 };
+				}
+			});
+		</script>
+	</body>
+	</html>

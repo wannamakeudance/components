@@ -1,0 +1,191 @@
+*{
+	font-family: '微软雅黑'
+}
+.clearfix:after{
+	clear: both;
+	content: '';
+	display: block;
+}
+.clearfix{
+	zoom:1;
+}
+
+/*
+	全局
+*/
+.sourceDataSetting .modal-dialog{
+	width: 720px;
+	height: 480px;
+}
+#sourceDataSetting2 .modal-dialog{
+	width: 75%;
+}
+.sourceDataSetting .modal-content{
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+}
+/*
+	引导圆圈
+*/
+.sourceDataSetting .modal-guide{
+	position: relative;
+	text-align: center;
+	color: #fff;
+}
+.sourceDataSetting .modal-guide .circle{
+	width: 36px;
+	height: 36px;
+	line-height: 36px;
+	font-size: 25px;
+	font-weight: bold;
+}
+#sourceDataSetting1 .modal-guide .page2 .circle{
+	background: #fff;
+	color: #000;
+}
+.sourceDataSetting .modal-guide>div{
+	display: inline-block;
+}
+#sourceDataSetting1 .modal-guide .page2,#sourceDataSetting2 .modal-guide .page1{
+	cursor: pointer;
+}
+.sourceDataSetting .modal-guide .line{
+	width: 146px;
+	height: 6px;
+	background: #fff;
+	position: absolute;
+	top: 15px;
+	left: 50%;
+	margin-left: -73px;
+	padding-left: 100px;
+}
+#sourceDataSetting2 .modal-guide .line{
+	background: #7e85e3;
+}
+.sourceDataSetting .page1{
+	margin-right: 95px;
+}
+/*
+	头部
+*/
+.sourceDataSetting .modal-header{
+	padding-left: 45px;
+	padding-top: 20px;
+	border-bottom: 0 none;
+}
+#sourceDataSetting1 .modal-header{
+	background: url(../lib/imgs/bgFlower1.png) no-repeat top right;
+}
+#sourceDataSetting2 .modal-header{
+	background: url(../lib/imgs/bgFlower2.png) no-repeat top right;
+}
+.sourceDataSetting .modal-header h5{
+	color: #666;
+}
+.sourceDataSetting .circle{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 20px;
+	-webkit-border-radius:50%;
+	background: #7e85e3;
+	color: #fff;
+}	
+.sourceDataSetting .modal-title{
+	color: #7e85e3;
+}
+
+/*
+	内容
+*/
+
+.sourceDataSetting .form-group{
+	width: 45%;
+	display: inline-block;
+}
+.sourceDataSetting  .first,.sourceDataSetting .last{
+	width: 94%;
+}
+.sourceDataSetting input,.sourceDataSetting select{
+	border: none 0;
+	outline: none;
+	border-bottom: 1px solid #e4e4e4;
+	border-radius: 0px;
+	-webkit-border-radius:0px;
+	font-size: 14px;
+}
+#sourceDataSetting2 .modal-body,#sourceDataSetting2 iframe{
+	width: 96%;
+	height: 300px;
+	margin: 0 2%;
+	padding: 0;
+}
+
+/*
+	自定义下拉框
+*/
+
+.btn-select { 
+	position: relative; 
+	display: inline-block; 
+	width: 100%; 
+	height: 25px; 
+	color: #999;
+	border-bottom: 1px solid #e4e4e4;
+}
+.btn-select:hover{
+	color: #999;
+} 
+.btn-select option{
+	border: 1px solid red;
+}
+.btn-select .cur-select { 
+	position: absolute; 
+	display: block; 
+	width: 100%; 
+	height: 25px; 
+	line-height: 25px; 
+	background: url(../lib/imgs/selectTri.png) no-repeat 98% center; 
+	text-indent: 10px; 
+} 
+.btn-select select { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 25px; 
+	opacity: 0; 
+	filter: alpha(opacity: 0); 
+} 
+.btn-select select option { 
+	text-indent: 10px; 
+} 
+.btn-select option{
+	height: 30px;
+	line-height: 30px;
+}
+/*
+	底部
+*/
+.sourceDataSetting .modal-footer{
+	background: #f5f4fa;
+	text-align: center;
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+	height: 70px;
+	padding: 15px 0 15px 0;
+}
+.sourceDataSetting .done,.sourceDataSetting .next{
+	width: 12%;
+	border-radius: 4px;
+	-webkit-border-radius:4px;
+}
+.sourceDataSetting .done{
+	color: #818181;
+	background: #fff;
+}
+.sourceDataSetting .next{
+	background: #7e85e3;	
+}
