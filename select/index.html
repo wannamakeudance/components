@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>select</title>
+	<link rel="stylesheet" href="../lib/plugins/css/bootstrap.css">
+	<style>
+	.selection{
+		width: 200px;
+	}
+	.selection input{
+		height: 30px;
+		width: 100%;
+		border:0 none;
+		outline: none;
+		border-bottom: 1px solid #ddd;
+		display: inline-block;
+		text-align: center;
+		background: url(../lib/imgs/selectTri.png) no-repeat 96% center;
+	}
+	.selection li,.selection ul{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		text-align: center;
+	}
+	.selection li{
+		height: 30px;
+		line-height: 30px;
+	}
+	.selection li:hover{
+		background: #eee;
+	}
+	.selection ul{
+		display: none;
+		border: 1px solid #eee;
+	}
+	.selection ul.on{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<div class="selection" id="sel1">
+		<div class="wrapper">
+			<input value="默认值XXXXXX" readonly="readonly">
+			<i class="tri"></i>
+		</div>
+		<ul class="dropdownList">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<script src="../lib/plugins/js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function(){
+			$(document).on('click','#sel1',function(){
+				$(this).find('ul').addClass('on');
+			});
+			$(document).on('click','#sel1 li',function(){
+				$('#sel1').find('input').val($(this).text());
+				$(this).closest('ul').removeClass('on');
+				return false;
+			});
+		});
+	</script>
+</body>
+</html>
