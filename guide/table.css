@@ -15,15 +15,13 @@ tr,td{
 	line-height: 50px;
 	font-size: 14px;
 }
+
 a:hover{
 	text-decoration: none;
 }
 .table-responsive{
 	height: 100%;
 	border: 0 none;
-}
-.table>thead:first-child>tr:first-child>th{
-	/*padding: 0 4px 10px 4px;*/
 }
 .table > tbody > tr > td{
 	padding: 3px;
@@ -32,6 +30,9 @@ a:hover{
 }
 table .timeType{
 	width: 10%;
+}
+table .first{
+	cursor: move;
 }
 .mCSB_inside > .mCSB_container{
 	margin-right: 10px;
@@ -57,7 +58,7 @@ table .des .circle{
 	display: none;
 	position: absolute;
 	right: 3px;
-	top:36%;
+	top:35%;
 	background: #999;
 	width: 16px;
 	height: 16px;

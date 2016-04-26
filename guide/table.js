@@ -14,6 +14,10 @@ $(function(){
 		editable:function(){
 			var self = this;
 			$(document).on('click','#sourceDataTable td',function(){
+				if($( "#sortable" ).sortable() && !$(this).hasClass('first')){				
+					$( "#sortable" ).sortable('destroy');
+				}
+
 				// 清除其他行的样式
 				$('#sourceDataTable div').removeClass('editable').attr('contenteditable','false');
 				$('#sourceDataTable .check').removeClass('on');
@@ -29,6 +33,7 @@ $(function(){
 				// 可check
 				var index = $(this).index();
 				self.checkable($(this));
+				return false;
 
 			});
 		},
@@ -52,18 +57,28 @@ $(function(){
 			});
 		},
 		draggable:function(){
-			$(document).on('click','#sourceDataTable tr',function(){
-				
-			});
+			 $( "#sortable" ).sortable();
+			 $(document).on('click','.first',function(){
+			 	$( "#sortable" ).sortable();
+			 });
 		},
 		deleteTr:function(){
-			$('#sourceDataTable tr').unbind('hover');
+			$('#sourceDataTable tr').off('mouseenter mouseleave');
+			$('#sourceDataTable tr').on({
+				mouseenter:function(){
+					$(this).find('.circle').addClass('on');	
+				},
+				mouseleave:function(){
+					$(this).find('.circle').removeClass('on');	
+				}
+			});
 			$('#sourceDataTable tr').hover(function(){
 				$('#sourceDataTable tr').css('background','#fff');
 				$(this).css('background','#edecf7');
-				$(this).find('.circle').toggleClass('on');
-
 			});
+			$('#sourceDataTable .first').on('mousedown',function(){
+				$(this).closest('tr').find('.circle').removeClass('on');
+			})
 			// 显示叉号可以进行删除
 			$(document).off('click','icon-cha02');
 			$(document).on('click','.icon-cha02:visible',function(){
