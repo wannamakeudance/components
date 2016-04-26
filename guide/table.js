@@ -48,7 +48,7 @@ $(function(){
 			// 多次触发，取消绑定
 			$this.unbind('click');
 			$this.click(function(){
-				$(this).find('i').toggle('on');
+				$(this).find('.check i').toggle('on');
 			});
 		},
 		draggable:function(){
@@ -61,8 +61,20 @@ $(function(){
 			$('#sourceDataTable tr').hover(function(){
 				$('#sourceDataTable tr').css('background','#fff');
 				$(this).css('background','#edecf7');
-				// 显示叉号可以进行删除
+				$(this).find('.circle').toggleClass('on');
+
 			});
+			// 显示叉号可以进行删除
+			$(document).off('click','icon-cha02');
+			$(document).on('click','.icon-cha02:visible',function(){
+				$('#sourceDataTable tr:not(:first)').each(function(){
+					var $this = $(this).find('div').eq(0);
+					var listNum = parseInt($this.text());
+					listNum--;
+					$this.text(listNum);
+				});
+				$(this).closest('tr').remove();
+			})
 		}
 
 	};	
