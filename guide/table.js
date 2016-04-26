@@ -67,13 +67,11 @@ $(function(){
 			// 显示叉号可以进行删除
 			$(document).off('click','icon-cha02');
 			$(document).on('click','.icon-cha02:visible',function(){
-				$('#sourceDataTable tr:not(:first)').each(function(){
-					var $this = $(this).find('div').eq(0);
-					var listNum = parseInt($this.text());
-					listNum--;
-					$this.text(listNum);
-				});
 				$(this).closest('tr').remove();
+				$('#sourceDataTable tr:not(:first) .listNum').each(function(index,elem){
+					$(this).text(index+1);
+				});
+				
 			})
 		}
 
