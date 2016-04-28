@@ -10,10 +10,11 @@ html,body{
 	background: #fff;
 	overflow: hidden;
 }
-tr,td{
-	height: 50px;
+tr,td,th{
+	/*height: 50px;*/
 	line-height: 50px;
 	font-size: 14px;
+	text-align: center;
 }
 
 a:hover{
@@ -24,23 +25,38 @@ a:hover{
 	border: 0 none;
 }
 .table > tbody > tr > td{
-	padding: 3px;
+	padding: 8px;
 	margin:10px;
 	vertical-align: middle;
 }
-table .timeType{
+.table >tbody >tr:last-child{
+	border-bottom: 1px solid #eee;
+}
+table .w-1{
 	width: 10%;
+}
+table .w-15{
+	width: 15%;
+}
+
+table .w-6{
+	width: 60%;
 }
 table .first{
 	cursor: move;
+}
+table .con{
+	height: 34px;
+}
+table .con.error{
+	border:1px solid red;
+	outline: none;
 }
 .mCSB_inside > .mCSB_container{
 	margin-right: 10px;
 }
 table div{
-	white-space: nowrap;
-	height: 30px;
-	line-height: 30px;
+	line-height: 34px;
 }
 table div.editable{
 	background: #fff;
@@ -48,10 +64,11 @@ table div.editable{
 	-webkit-border-radius:2px; 
 }
 table .check{
+	height: 34px;
 	cursor: pointer;
 }
 .table > tbody >tr>td.des{
-	padding-right: 50px;
+	padding-right: 30px;
 	position: relative;
 }
 table .des .circle{
@@ -73,6 +90,9 @@ table .des .circle{
 table .des .circle.on{
 	display: block;
 }
+table .des div{
+	min-height: 34px;
+}
 table .pointer i{
 	display: none;
 }
@@ -80,42 +100,52 @@ table .on i{
 	display: inline-block;
 }
 /*
-	自定义下拉框
+	新自定义下拉框
 */
-
-.btn-select { 
-	position: relative; 
-	display: inline-block; 
-	width: 100%; 
-	height: 100%; 
-	color: #666;
+.selection .dropdown-menu{
+	min-width: 0px;
 }
-.btn-select:hover{
-	color: #666;
-} 
-.btn-select option{
-	border: 1px solid red;
-	font-size:14px;
+.selection{
+	width: 100%;
+	position: relative;
+}
+.selection input{
+	height: 34px;
+	width: 95%;
+	border:0 none;
+	outline: none;
+	background: transparent;
+	display: inline-block;
+	text-align: center;	
+}
+.editable .selection input{
+	background: transparent url(../lib/imgs/selectTri.png) no-repeat 99% center;
+	padding-right: 14%;
+	text-indent: 15%;
+	background-size: 8px;
+}
+.selection li,.selection ul{
+	font-size: 14px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
 	text-align: center;
 }
-.editable .btn-select .cur-select{ 
-	position: absolute; 
-	display: block; 
-	width: 100%;  
-	height: 100%;
-	background: url(../lib/imgs/selectTri.png) no-repeat 100% center; 
-	background-size: 10px;
-} 
-.btn-select select { 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	width: 100%; 
-	height: 25px; 
-	opacity: 0; 
-	filter: alpha(opacity: 0); 
-} 
-.btn-select option{
+.selection li{
 	height: 30px;
 	line-height: 30px;
+}
+.selection li:hover{
+	background: #eee;
+}
+.selection ul{
+	display: none;
+	border: 1px solid #eee;
+}
+.selection ul.on{
+	display: block;
+}
+#mCSB_1_container{
+	padding-bottom: 30%;
 }

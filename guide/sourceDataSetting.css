@@ -1,6 +1,84 @@
 *{
 	font-family: '微软雅黑'
 }
+a {
+    transition:color 100ms ease-in-out;
+    -o-transition:color 100ms ease-in-out;
+    -ms-transition:color 100ms ease-in-out;
+    -moz-transition:color 100ms ease-in-out;
+    -webkit-transition:color 100ms ease-in-out
+}
+.f-s-12 {
+    font-size:12px!important
+}
+.f-s-14{
+	font-size:14px!important;
+}
+.f-s-16 {
+    font-size:16px!important
+}
+.f-w-600 {
+    font-weight:600!important
+}
+.p-l-30 {
+    padding-left:30px!important
+}
+.p-l-40 {
+    padding-left:40px!important
+}
+.m-l-5 {
+    margin-left:5px!important
+}
+.m-t-10 {
+    margin-top:10px!important
+}
+.m-t-20 {
+    margin-top:20px!important
+}
+.m-b-15 {
+    margin-bottom:15px!important
+}
+.btn.btn-default {
+    color:#fff;
+}
+.form-control{
+	 border:1px solid #ccd0d4;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+    font-size:12px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px
+}
+.form-control.input-white {
+    background:#fff;
+    border-color:#fff
+}
+.form-control.input-white:focus {
+    box-shadow:none;
+    -webkit-box-shadow:none
+}
+.form-control[disabled],.form-control[readonly],fieldset[disabled] .form-control {
+    background:#e5e9ed;
+    opacity:.6;
+    filter:alpha(opacity=60)
+}
+.form-control[disabled]:focus,.form-control[readonly]:focus,fieldset[disabled] .form-control:focus {
+    box-shadow:none;
+    -webkit-box-shadow:none;
+    border:1px solid #ccd0d4
+}
+.form-control:focus {
+    border-color:#9fa2a5;
+    -webkit-box-shadow:none;
+    box-shadow:none
+}
+.form-control.input-inline {
+    display:inline;
+    width:auto;
+    padding:0 7px
+}
+
 .clearfix:after{
 	clear: both;
 	content: '';
@@ -13,16 +91,33 @@
 /*
 	全局
 */
+.saveInfo{
+	display: none;
+	z-index: 99999;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	color: #66639c;
+	text-align: center;
+	text-indent: 5px;
+	background: #e8eaf7;
+	box-shadow: 4px 4px 4px #f6f7fb;
+	border-radius: 3px;
+	-webkit-border-radius:3px;
+	position: absolute;
+	top: 200px;
+	right: 200px;
+}
 .sourceDataSetting .modal-dialog{
 	width: 720px;
 	height: 480px;
 }
 #sourceDataSetting2 .modal-dialog{
-	width: 75%;
+	width: 78%;
 }
 .sourceDataSetting .modal-content{
-	border-radius: 6px;
-	-webkit-border-radius:6px;
+	border-radius: 10px;
+	-webkit-border-radius:10px;
 }
 /*
 	引导圆圈
@@ -100,7 +195,9 @@
 /*
 	内容
 */
-
+#sourceDataSetting1 .required.error{
+	border: 1px solid red;
+}
 .sourceDataSetting .form-group{
 	width: 45%;
 	display: inline-block;
@@ -122,49 +219,46 @@
 	margin: 0 2%;
 	padding: 0;
 }
-
 /*
-	自定义下拉框
+	新自定义下拉框
 */
-
-.btn-select { 
-	position: relative; 
-	display: inline-block; 
-	width: 100%; 
-	height: 25px; 
-	color: #999;
-	border-bottom: 1px solid #e4e4e4;
+.selection{
+	width: 100%;
+	position: relative;
 }
-.btn-select:hover{
+.selection input{
+	text-indent: 15px;
 	color: #999;
-} 
-.btn-select option{
-	border: 1px solid red;
-}
-.btn-select .cur-select { 
-	position: absolute; 
-	display: block; 
-	width: 100%; 
-	height: 25px; 
-	line-height: 25px; 
-	background: url(../lib/imgs/selectTri.png) no-repeat 98% center; 
-	text-indent: 10px; 
-} 
-.btn-select select { 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	width: 100%; 
-	height: 25px; 
-	opacity: 0; 
-	filter: alpha(opacity: 0); 
-} 
-.btn-select select option { 
-	text-indent: 10px; 
-} 
-.btn-select option{
 	height: 30px;
+	width: 100%;
+	border:0 none;
+	outline: none;
+	border-bottom: 1px solid #ddd;
+	display: inline-block;
+	text-align: left;
+	background: url(../lib/imgs/selectTri.png) no-repeat 96% center;
+}
+.selection li,.selection ul{
+	font-size:14px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	text-align: center;
+}
+.selection li{
+	min-height: 30px;
 	line-height: 30px;
+}
+.selection li:hover{
+	background: #eee;
+}
+.selection ul{
+	display: none;
+	border: 1px solid #eee;
+}
+.selection ul.on{
+	display: block;
 }
 /*
 	底部
@@ -172,20 +266,21 @@
 .sourceDataSetting .modal-footer{
 	background: #f5f4fa;
 	text-align: center;
-	border-radius: 6px;
-	-webkit-border-radius:6px;
+	border-radius: 10px;
+	-webkit-border-radius:10px;
 	height: 70px;
 	padding: 15px 0 15px 0;
 }
 .sourceDataSetting .done,.sourceDataSetting .next{
-	width: 12%;
+	width: 80px;
 	border-radius: 4px;
 	-webkit-border-radius:4px;
 }
-.sourceDataSetting .done{
+.sourceDataSetting .done,.sourceDataSetting .before{
 	color: #818181;
 	background: #fff;
 }
-.sourceDataSetting .next{
-	background: #7e85e3;	
+.sourceDataSetting .activeBtn{
+	color: #fff;
+	background: #7e85e3;
 }

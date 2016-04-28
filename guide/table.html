@@ -4,14 +4,12 @@
 	<meta charset="UTF-8">
 	<title>table</title>
 	<link rel="stylesheet" href="../lib/plugins/css/bootstrap.css">
-	<link rel="stylesheet" href="../lib/plugins/css/style.min.css">
 
 	<link rel="stylesheet" href="../lib/plugins/css/jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" href="../lib/plugins/icomoon/icomoon.css">
 	<link rel="stylesheet" href="table.css">
 </head>
 <body>
-<!-- <div class="test"> -->
 	<div class="table-responsive" id="sourceDataTable">
 	  <table class="table">
 	    <thead>
@@ -26,282 +24,71 @@
 	    	</tr>
 	    </thead>
 	    <tbody id="sortable">
+	    	<!-- 空白，待新建 -->
 	    	<tr class="ui-state-default">
-	    		<td class="first">
+	    		<td class="first w-1">
 	    			<div class="listNum">1</div>
 	    		</td>
-	    		<td>
-					<div class="edit pointer">创建时间</div>
+	    		<td class="w-15">
+					<div class="edit pointer con"></div>
 	    		</td>
-	    		<td>
+	    		<td class="w-1">
 	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select1"> 
-							<span class="cur-select  f-s-14">时间</span> 
-							   	<select class="form-control">
-							   		<option value="1">时间</option>
-							   		<option value="2">文本</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
+		                <div class="selection" id="sel2">
+		                    <div class="wrapperIn">
+		                        <input value="" readonly="readonly">
+		                        <i class="tri"></i>
+		                    </div>
+		                    <ul class="dropdown-menu">
+		                    	<li>文本</li>
+		                        <li>时间</li>
+		                        <li>货币</li>
+		                    </ul>
+		                </div>
 	    			</div>
 	    		</td>
-	    		<td class="timeType">
+	    		<td class="timeType w-1">
 	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select2"> 
-							<span class="cur-select  f-s-14">时间格式</span> 
-							   	<select class="form-control">
-							   		<option value="1">时间格式</option>
-							   		<option value="2">文本格式</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
+					     <div class="selection" id="sel2">
+		                    <div class="wrapperIn">
+		                        <input value="" readonly="readonly">
+		                        <i class="tri"></i>
+		                    </div>
+		                    <ul class="dropdown-menu">
+		                        <li>小文本</li>
+		                        <li>时间格式</li>
+		                        <li>货币格式</li>
+		                    </ul>
+		                </div>
 	    			</div>	
 	    		</td>
-	    		<td>
+	    		<td class="w-1">
 	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select3"> 
-							<span class="cur-select  f-s-14">验证规则</span> 
-							   	<select class="form-control">
-							   		<option value="1">10</option>
-							   		<option value="2">20</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
+					     <div class="selection RegType" id="sel2">
+		                    <div class="wrapperIn">
+		                        <input value="" readonly="readonly">
+		                        <i class="tri"></i>
+		                    </div>
+		                    <ul class="dropdown-menu">
+		                        <li>7</li>
+		                        <li>8</li>
+		                        <li>9</li>
+		                    </ul>
+		                </div>
 	    			</div>
 	    		</td>
-	    		<td>
-	    			<div class="pointer check on"><i class="icon-duigou02"></i></div>
-	    		</td>
-	    		<td class="des">
-	    			<div class="edit pointer">创建时间是指该信息项目创建时间是指该信息项目创建时间是指该信息项目
-	    			</div>
-	    			<i class="icon-cha02 circle"></i>
-	    		</td>
-	    	</tr>
-	    	<!-- 空白，待新建 -->
-			<tr class="ui-state-default">
-	    		<td class="first">
-	    			<div class="listNum">2</div>
-	    		</td>
-	    		<td>
-					<div class="edit pointer"></div>
-	    		</td>
-	    		<td>
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select1"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">时间</option>
-							   		<option value="2">文本</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>
-	    		</td>
-	    		<td class="timeType">
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select2"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">时间格式</option>
-							   		<option value="2">文本格式</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>	
-	    		</td>
-	    		<td>
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select3"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">10</option>
-							   		<option value="2">20</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>
-	    		</td>
-	    		<td>
+	    		<td class="w-1">
 	    			<div class="pointer check"><i class="icon-duigou02"></i></div>
 	    		</td>
-	    		<td class="des">
-	    			<div class="edit pointer"></div>
+	    		<td class="des w-6">
+	    			<div class="edit pointer">
+	    			</div>
 	    			<i class="icon-cha02 circle"></i>
 	    		</td>
 	    	</tr>
-	    	<tr class="ui-state-default">
-	    		<td class="first">
-	    			<div class="listNum">3</div>
-	    		</td>
-	    		<td>
-					<div class="edit pointer"></div>
-	    		</td>
-	    		<td>
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select1"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">时间</option>
-							   		<option value="2">文本</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>
-	    		</td>
-	    		<td class="timeType">
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select2"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">时间格式</option>
-							   		<option value="2">文本格式</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>	
-	    		</td>
-	    		<td>
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select3"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">10</option>
-							   		<option value="2">20</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>
-	    		</td>
-	    		<td>
-	    			<div class="pointer check"><i class="icon-duigou02"></i></div>
-	    		</td>
-	    		<td class="des">
-	    			<div class="edit pointer"></div>
-	    			<i class="icon-cha02 circle"></i>
-	    		</td>
-	    	</tr>
-	    	<tr class="ui-state-default">
-	    		<td class="first">
-	    			<div class="listNum">4</div>
-	    		</td>
-	    		<td>
-					<div class="edit pointer"></div>
-	    		</td>
-	    		<td>
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select1"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">时间</option>
-							   		<option value="2">文本</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>
-	    		</td>
-	    		<td class="timeType">
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select2"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">时间格式</option>
-							   		<option value="2">文本格式</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>	
-	    		</td>
-	    		<td>
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select3"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">10</option>
-							   		<option value="2">20</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>
-	    		</td>
-	    		<td>
-	    			<div class="pointer check"><i class="icon-duigou02"></i></div>
-	    		</td>
-	    		<td class="des">
-	    			<div class="edit pointer"></div>
-	    			<i class="icon-cha02 circle"></i>
-	    		</td>
-	    	</tr>
-	    	<tr class="ui-state-default">
-	    		<td class="first">
-	    			<div class="listNum">5</div>
-	    		</td>
-	    		<td>
-					<div class="edit pointer"></div>
-	    		</td>
-	    		<td>
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select1"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">时间</option>
-							   		<option value="2">文本</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>
-	    		</td>
-	    		<td class="timeType">
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select2"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">时间格式</option>
-							   		<option value="2">文本格式</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>	
-	    		</td>
-	    		<td>
-	    			<div class="pointer">
-					    <a class="btn-select" id="btn_select3"> 
-							<span class="cur-select  f-s-14"></span> 
-							   	<select class="form-control">
-							   		<option value="1">10</option>
-							   		<option value="2">20</option>
-							   		<option value="0" selected="" style="display: none;"></option>
-							   	</select>
-							 </span>
-						</a>
-	    			</div>
-	    		</td>
-	    		<td>
-	    			<div class="pointer check"><i class="icon-duigou02"></i></div>
-	    		</td>
-	    		<td class="des">
-	    			<div class="edit pointer"></div>
-	    			<i class="icon-cha02 circle"></i>
-	    		</td>
-	    	</tr>
+	    	
 	    </tbody>
-<!-- </div>	     -->
 	  </table>
-	</div>
 	</div>
 	<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
 	<script src="../lib/plugins/js/jquery-ui.min.js"></script>
