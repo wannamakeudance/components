@@ -1,0 +1,98 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	font-family: '微软雅黑';
+	overflow: hidden;
+}
+ul,li{
+	list-style: none;
+	padding-left: 0;
+}
+.clearfix:after{
+	content: '';
+	display: inline-block;
+	clear: both;
+}
+.clearfix{
+	zoom:1;
+}
+#createCodeTable{
+	padding-left: 30px;
+}
+#createCodeTable .right ul{
+	margin-left: 1em;
+}
+#createCodeTable input{
+	border:none 0;
+	border-bottom:1px solid #dddddd;
+	outline: none;
+	box-shadow: none;
+	-webkit-box-shadow:none;
+	border-radius: 0px;
+	-webkit-border-radius:0px;
+	display: inline-block;
+	width: 75%;
+	margin-left:5%;	
+}
+#createCodeTable .con{
+	width: 100%;
+}
+#createCodeTable .con .des{
+	color: #898de6;
+}
+#createCodeTable .con> *{
+	float: left;
+}
+#createCodeTable .con .left{
+	width: 53%;
+}
+#createCodeTable .con .middle{
+	width: 6%;
+	line-height: 330px;
+	text-align: center;
+}
+#createCodeTable .con .middle i{
+	display: inline-block;
+	width: 12px;
+	height: 30px;
+	background: url(../lib/imgs/toRight.png) no-repeat;
+}
+#createCodeTable .con .right .des{
+	padding-bottom: 10px;
+}
+#createCodeTable .con .right{
+	width: 40%;
+}
+#createCodeTable .con .right .result{
+	background: #fbfbfd;
+	height: 290px;
+	padding-top: 10px;
+	padding-left: 20px;
+}
+#createCodeTable .con .initCon{
+	padding-left: 20px;
+	height: 280px;
+	outline: none;
+	color: #999;
+	border:1px solid #999ce9;
+	box-shadow: 3px 3px 3px #e8e9f7;
+	-webkit-box-shadow:3px 3px 3px #e8e9f7;
+}
+/*
+	树的样式
+*/
+#createCodeTable .right li{
+	cursor:pointer;
+	min-height: 35px;
+	background: url(../lib/imgs/line.png) repeat-y;
+	line-height: 35px;
+}
+.tri{
+    display: inline-block;
+    width: 16px;
+    height: 9px;
+    background: url(../lib/imgs/lineW.png) no-repeat center;
+}
+.tri.hasChildren{
+	background: url(../lib/imgs/triRight.png) no-repeat;
+}

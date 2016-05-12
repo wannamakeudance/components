@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建代码集</title>
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+   <link rel="stylesheet" href="../lib/plugins/css/bootstrap.css">
+
+	<link rel="stylesheet" href="../lib/plugins/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="../lib/plugins/icomoon/icomoon.css">
+
+	<!-- 引入树组件 -->
+	<link rel="stylesheet" href="createCodeTable.css">
+</head>
+<body>
+	<div id="createCodeTable">
+		<!-- start 代码集名称和描述 -->
+		 <div class="form-group">
+		    <label for="exampleInputName2">代码集名称</label>
+		    <input type="text" class="form-control" placeholder="请输入名称">
+		 </div>
+		 <div class="form-group">
+		    <label for="exampleInputName2">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述</label>
+		    <input type="text" class="form-control" placeholder="请输入代码集描述">
+		 </div>
+		 <!-- end 代码集名称和描述 -->
+		<div class="con clearfix">
+			<div class="left">
+				<p class="des">输入代码项名称（每行一个），文字前面加“-”表示为子集</p>
+				<!-- <div class="init"> -->
+					<textarea class="initCon first" style="width: 100%;resize: none;" >
+例：
+代码项1 
+-代码项11
+--代码项111
+--代码项112
+-代码项12
+-代码项13
+代码项2
+-代码项21
+-代码项22
+-代码项23
+					</textarea>
+				<!-- </div> -->
+			</div>
+			<div class="middle"><i></i></div>
+			<div class="right">
+				<p class="des">预览：</p>
+				<div class="result" id="checkTree"></div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
+	<script src="../lib/plugins/js/jquery-ui.min.js"></script>
+	<script src="../lib/plugins/js/bootstrap.min.js"></script>
+	<script src="../lib/plugins/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!-- <script src="../../plugins/third/artTemplate/template.js"></script> -->
+	<script src="createCodeTable.js"></script>
+	
+</body>
+</html>
