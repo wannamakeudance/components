@@ -1,215 +1,211 @@
 /*
-	created by jxz 2016.1.25
+    @name 树组件
+    @file finalTree
+    @author xzjing
 */ 
-function CheckTree(type){
-	this.arg=type;
-	this.html='';
-	// 设置默认值
-	this.width='30px';
-	this.left='0px';
-	this.position='absolute';
-	this.type='radio';//单选or复选出现复选框
-	this.parent=document.body;
-	// 实际传进的参数值
-	for(var i in this.arg){
-		this[i]=this.arg[i];
-	}
+function Tree(type){
+    this.arg = type;
+    // 设置默认值
+    this.html = '';
+    this.codeId = '';
+    this.left = '0px';
+    this.position = 'relative';
+    this.type = 'radio';//单选or复选出现复选框
+    this.parent = document.body;
+    // 实际传进的参数值
+    for(var i in this.arg){
+        this[i] = this.arg[i];
+    }
 }
-CheckTree.prototype={
-	constructor:CheckTree,
-	initUI:function(){
-		this.setType();
-		this.setWidth();
-		this.setLeft();
-		this.showChildren();
-		this.checkbox();
-		this.chooseAll();
-		this.affectParent();
-		this.hover();
-	},
-	setType:function(){
-		var _this=this;
-		var scriptArr=_this.scriptId;
-		// tab初始化
-		$.ajax({
-			url:_this.url,
-			data:{
-				uid:_this.uid,
-				initId:_this.initId
-			},
-			success:function(data){
-				var data=eval('('+data+')');
-				if(data.status ==1){
-					// 首次渲染页面
-					if(_this.type =='checkbox'){
-						var tmp='{{each msgDetail as value i}}'+
-								 '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.funId}}">'+
-		                			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-		                			'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span>'+
-		                			'</span>'+
-		                		'</li>'+
-							'{{/each}}';
-					}else{
-						var tmp='{{each msgDetail as value i}}'+
-								 '<li class="radiobox {{if value.hasChildren == true}}hasChildren{{/if}}" data-rootId="{{value.funId}}">'+
-                        			'<span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-                        			'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span>'+
-                        			'</span>'+
-                        		'</li>'+
-							'{{/each}}';
-					}
-					
-					$('#'+scriptArr[0]).append(tmp);
-					var html=template(scriptArr[0],data);
-					$('#checkable ul').append(html);
-				}else{
-					alert(data.msgInfo);
-				}	
-			},
-			error:function(){
-				alert('error');
-			}
-		});
-	},
-	setWidth:function(){
-		$('#checkable').css('width',this.width);
-		// 用栅格化的类名
-		// $('#checkable').addClass('col-md-2');
-	},
-	setLeft:function(){
-		$('#checkable').css({'position':this.position,'left':this.left});
-	},
-	showChildren:function(){
-		var _this=this;
-		var scriptArr=_this.scriptId;
-		$(document).on('click','.root',function(){
-			var $this=$(this);
-			var $rootid=$this.parents('li').data('rootid');
-			var $choose=$this.data('choose');
-			alert('传入的choose值'+$choose);
-			if($this.data('hasLoad')!= 1){
-				$.ajax({
-					url:_this.url,
-					data:{
-						uid:_this.uid,
-						rootid:$rootid,
-						choose:$choose
-					},
-					success:function(data){
-						var data=eval('('+data+')');
-						//父节点有孩子且status是1时点击才进行请求；
-						if(data.status ==1&&($this.parents('li').eq(0).hasClass('hasChildren'))){
-							if(_this.type == 'checkbox'){
-								var tmp='<ul class="rootChildren">'+
-      								'{{each msgDetail as value i}}'+
-      									'<li class="{{if value.hasChildren ==true}}hasChildren{{/if}}" data-rootId="{{value.funId}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-      									'<i class="checkbox {{if value.allChoose ==true}}ok{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span></li>'+
-      								'{{/each}}'+
-      							'</ul>';
-							}else{
-									var tmp='<ul class="rootChildren">'+
-	      								'{{each msgDetail as value i}}'+
-	      									'<li  data-rootId="{{value.funId}}" class="radiobox {{if value.hasChildren == true}}hasChildren{{/if}}"><span class="root" data-choose="{{if value.allChoose == true}}true{{else if value.allChoose ==false}}false{{/if}}">'+
-	      									'<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span></li>'+
-	      								'{{/each}}'+
-	      							'</ul>';
-							}
-	      		
-							$('#'+scriptArr[1]).append(tmp);
-							var html=template(scriptArr[1],data);
-							$this.parent().append(html);		
-							$this.parent().children('.rootChildren').slideToggle(200,'linear');
-							$this.children('.tri').toggleClass('open');
-							$this.children('span').find('.doc').toggleClass('open');
-							
-						}else{
-							_this.tipsModal();
-							$('#myModal').modal();
-							return false;
-						}
-						// 作为请求过的标识
-						$this.data('hasLoad',1);
-					},
-					error:function(){
-						alert('error');
-					}
-				});
-			}else{
-				$this.parent().children('.rootChildren').slideToggle(200,'linear');
-				$this.children('.tri').toggleClass('open');
-				$this.children('span').find('.doc').toggleClass('open');
-			}		
-		});
-	},
-	checkbox:function(){
-		$(document).on('click','#checkable .checkbox',function(){
-			$(this).toggleClass('ok');
-			var $root=$(this).parent('.root');
-			// 改变当前对象的data-choose值
-			$(this).hasClass('ok')?$root.data('choose',true):$root.data('choose',false);
-			return false;
-		});
-	},
-	chooseAll:function(){
-		// 要区分出展开和未展开的状态
-		$(document).on('click','#checkable .checkbox',function(){
-			if($(this).hasClass('ok')){
-				$(this).parents('.root').parent().children('ul').find('.checkbox').addClass('ok');
-				// 改变子节点对应对象的data-choose值
-				$(this).parents('.root').parent().children('ul').find('.root').data('choose',true);
-			}else{
-				$(this).parents('.root').parent().children('ul').find('.checkbox').removeClass('ok');
-				// 改变子节点对应对象的data-choose值
-				$(this).parents('.root').parent().children('ul').find('.root').data('choose',false);
-			}
-			return false;
-		});
-	},
-	affectParent:function(){
-		$(document).on('click','#checkable .checkbox',function(){
-			var $parentCheck=$(this).parents('ul').prev().find('.checkbox');
-			for(var i=$parentCheck.length-1 ;i>=0;i--){
-				var m=0;
-				var $sib=$parentCheck.eq(i).parents('li').eq(0).children('ul').children('li');
-				var $len=$sib.length;
-				for(var j=0; j< $len; j++){
-					if($sib.eq(j).children('.root').find('.checkbox').hasClass('ok')){
-						m++;
-					}
-				}
-				// alert('第'+i+'个父根节点'+'有'+$len+'个直接子级，被点亮的直接子级'+m+'个');
-				if(m ==$len){
-					$parentCheck.eq(i).addClass('ok');
-					$parentCheck.eq(i).parent('.root').data('choose',true);
-				}else{
-					$parentCheck.eq(i).removeClass('ok');
-					$parentCheck.eq(i).parent('.root').data('choose',false);
-				}
-			}
-		});
-	},
-	hover:function(){
-		// 滑过树状时变色
-		$(document).on('mouseover','li',function(){
-			$(this).children('.root').addClass('on');
-			return false;
-		});
-		$(document).on('mouseout','li',function(){
-			$(this).children('.root').removeClass('on');
-			return false;
-		});
-	},
-	tipsModal:function(){
-		var html='<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
-  				'<div class="modal-dialog" role="document">'+
-   				'<div class="modal-content">'+
-     			'<div class="modal-footer">'+
-        			'<span style="float: left;">抱歉该层没有子级</span>'+
-        			'<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>'+
-      			'</div>'+
-    			'</div>'+
-				'</div>'+
-				'</div>';
-		$(document.body).append(html);
-	}
+Tree.prototype = {
+    constructor:Tree,
+    initUI:function(){
+        this.setType();
+        this.setHeight();
+        this.setWidth();
+        this.setLeft();
+        this.showChildren();
+        this.chooseAll();
+        this.affectParent();
+    },
+    /*
+        单选模板引擎
+    */
+    radioTmp:function(){
+        return '{{each msgDetail as value i}}'+
+                 '<li class="radiobox {{if value.hasChildren == true}}hasChildren{{/if}}" data-code="{{value.treeCode}}">'+
+                    '<span class="root">'+
+                    '<i class="tri {{if value.hasChildren == true}}hasChildren{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span>'+
+                    '</span>'+
+                '</li>'+
+            '{{/each}}';
+    },
+    /*
+        多选模板引擎
+    */
+    checkboxTmp:function(){
+        return '{{each msgDetail as value i}}'+
+                     '<li class="{{if value.hasChildren == true}}hasChildren{{/if}}" data-code="{{value.treeCode}}">'+
+                        '<span class="root" data-choose="{{if value.allChoose == "true"}}true{{else if value.allChoose =="false"}}false{{/if}}">'+
+                        '<i class="checkbox {{if value.allChoose == "true"}}ok{{/if}}"></i><span><i class="doc {{if value.hasChildren== true}}hasChildren{{/if}}"></i>{{value.name}}</span></span>'+
+                        '</span>'+
+                    '</li>'+
+                '{{/each}}';
+    },
+    /*
+        渲染根节点
+    */
+    setType:function(){
+        var self = this;
+        $.ajax({
+            url:self.url,
+            data:{
+                codeId:self.codeId,
+                action:"getTreeRoot"
+            },
+            success:function(data){
+                data = JSON.parse(data);
+                data.msgDetail = JSON.parse(data.msgDetail);
+                if(data.status == 1){
+                    // 首次渲染页面
+                    var tmp = (self.type =='checkbox') ? self.checkboxTmp() :self.radioTmp();
+                    var render = template.compile(tmp);
+                    var html = render(data);
+                    $(self.treeId +' ul').append(html); 
+                }else{
+                    alert(data.msgInfo);
+                }   
+            },
+            error:function(){
+                console.log('tree setType Ajax error');
+            }
+        });
+    },
+    /*
+        设置高度
+    */
+    setHeight:function(){
+        this.height && $(this.treeId).css('max-height',this.height);
+    },
+    /*
+        设置宽度
+    */
+    setWidth:function(){
+        this.width? $(this.treeId).css('width',this.width).show():$(this.treeId).addClass(this.class).show();
+    },
+    /*
+        设置左边距
+    */
+    setLeft:function(){
+        $(this.treeId).css({'position':this.position,'left':this.left});
+    },
+    /*
+        点击节点展开子节点
+    */
+    showChildren:function(){
+        var self = this;
+        $(document).off('click',self.treeId+' .root');
+        $(document).on('click',self.treeId+' .root',function(event,arr,arrLast,text){
+            var $this = $(this);
+            var $rootid = $this.parents('li').data('code');
+            var $choose = $this.data('choose')+'';
+            // 有子节点时请求或者展开下一级
+            if($this.closest('li').hasClass('hasChildren')){
+                if($this.data('hasLoad') != 1){
+                    // 首次点开，需要异步加载
+                    $.ajax({
+                        url:self.url,
+                        type:"post",
+                        data:{
+                            codeId:self.codeId,
+                            funId:'['+$rootid+']',
+                            choose:$choose,
+                            action:'getTreeByParent'
+                        },
+                        success:function(data){
+                            data = JSON.parse(data);
+                            data.msgDetail = JSON.parse(data.msgDetail);
+                            if(data.status == "1"){
+                                var tmp ='<ul class="rootChildren">'+ 
+                                            ((self.type == 'checkbox') ?self.checkboxTmp():self.radioTmp())+
+                                        '</ul>';
+                                
+                                var render = template.compile(tmp);
+                                var html = render(data);
+                                $this.parent().append(html);
+                                self.showChildrenUI($this);        
+                            }
+                            // 作为请求过的标识
+                            $this.data('hasLoad',1);
+                        },
+                        error:function(){
+                            console.log('tree showChildren Ajax error');
+                        }
+                    });
+                }else{
+                    self.showChildrenUI($this);  
+                }
+            }
+          
+        });
+    },
+    /*
+        展开子节点时的交互效果
+    */
+    showChildrenUI:function($this){
+        $this.parent().children('.rootChildren').slideToggle(200,'linear');
+        $this.children('.tri').toggleClass('open');
+        $this.children('span').find('.doc').toggleClass('open');
+    },
+    /*
+        复选：全选或全不选
+    */
+    chooseAll:function(){
+        var self = this;
+        $(document).off('click',this.treeId + ' .checkbox');
+        $(document).on('click',this.treeId + ' .checkbox',function(){
+            $(this).toggleClass('ok');
+
+            var $root=$(this).parent('.root');
+            // 改变当前对象的data-choose值
+            $(this).hasClass('ok') ? $root.data('choose',"true") : $root.data('choose',"false");
+        
+            if($(this).hasClass('ok')){
+                $(this).closest('li').find('.checkbox').addClass('ok');
+                // 改变子节点对应对象的data-choose值
+                $(this).closest('li').find('.root').data('choose',"true");
+            }else{
+                $(this).closest('li').find('.checkbox').removeClass('ok');
+                // 改变子节点对应对象的data-choose值
+                $(this).closest('li').find('.root').data('choose',"false");
+            }
+            return false;
+        });
+    },
+    /*
+        复选：选择子节点时对各父辈节点的影响
+    */
+    affectParent:function(){
+        var self = this;
+        $(document).on('click',this.treeId + ' .checkbox',function(){
+            var $parentCheck = $(this).parents('ul').prev().find('.checkbox');
+            for(var i = $parentCheck.length-1 ; i >= 0; i--){
+                var m = 0;
+                var $sib = $parentCheck.eq(i).closest('li').children('ul').children('li');
+                var len = $sib.length;
+                for(var j = 0; j< len; j++){
+                    if($sib.eq(j).children('.root').find('.checkbox').hasClass('ok')){
+                        m++;
+                    }
+                }
+                if(m == len){
+                    $parentCheck.eq(i).addClass('ok');
+                    $parentCheck.eq(i).parent('.root').data('choose',"true");
+                }else{
+                    $parentCheck.eq(i).removeClass('ok');
+                    $parentCheck.eq(i).parent('.root').data('choose',"false");
+                }
+            }
+        });
+    }
 };
