@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>selection</title>
+	<link rel="stylesheet" href="selection.css">
+	
+</head>
+<body>
+	
+	<div class="selection" id="sel2">
+		<!--输入框  -->
+		<div class="wrapperIn">
+            <input datatype="'+saveTypeData+'" placeholder="选择所属对象" readonly="readonly" class="required" id="input1">
+            <i class="tri"></i>
+        </div>
+        <!-- 下拉内容 -->
+        <ul class="dropdown-menu" id="dropdown1">
+        </ul>
+	</div>
+	<script src="../lib/plugins/js/jquery-1.9.1.min.js"></script>
+	<!-- 引入组件内容 -->
+	<script src="selection.js"></script>
+	<script>
+		$(function(){
+			// 这是测试传参内容 
+			var selectionsArr = [1,2,3,4,5];
+			var callback = function(){
+				alert('this is test code for callback!');
+			};
+
+			var selection = new OwnSelection({
+				selectionBoxId :'#sel2',//点击其他地方收起时用到
+				inputId:'#input1',
+				selectionId:'#dropdown1',
+				selectionsArr:selectionsArr,
+				callback:callback
+			});
+			selection.init();
+
+		});
+	</script>
+</body>
+</html>
