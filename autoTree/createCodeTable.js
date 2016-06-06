@@ -84,9 +84,9 @@ $(function(){
 						return false;
 					}	
 				},
-				keydown:function(e){
+				keyup:function(e){
 					var e = e||event;
-					if(e.which == 13){//按下的是回车键
+					if(e.which == 13 || 8){//按下的是回车键
 						$('.result').mCustomScrollbar('destroy');
 						$('#checkTree').html('');
 						var leftCon = $('.initCon').val();
